@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/inoue/Desktop/DesignPattern/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/design_pattern.dir/main.cpp.o -c /home/inoue/Desktop/DesignPattern/main.cpp",
+  "file": "/home/inoue/Desktop/DesignPattern/main.cpp"
+}
+]
