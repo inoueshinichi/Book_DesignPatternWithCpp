@@ -6,6 +6,40 @@
 
 #IncludeRegexTransform: 
 
+/home/inoue/Desktop/DesignPattern/builder_pattern/builder.hpp
+string
+-
+vector
+-
+
+/home/inoue/Desktop/DesignPattern/builder_pattern/director.hpp
+builder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/builder.hpp
+memory
+-
+
+/home/inoue/Desktop/DesignPattern/builder_pattern/htmlbuilder.hpp
+builder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/builder.hpp
+memory
+-
+string
+-
+vector
+-
+fstream
+-
+
+/home/inoue/Desktop/DesignPattern/builder_pattern/textbuilder.hpp
+builder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/builder.hpp
+string
+-
+sstream
+-
+memory
+-
+
 /home/inoue/Desktop/DesignPattern/main.cpp
 iostream
 -
@@ -17,6 +51,14 @@ prototype_pattern/messagebox.hpp
 /home/inoue/Desktop/DesignPattern/prototype_pattern/messagebox.hpp
 prototype_pattern/manager.hpp
 /home/inoue/Desktop/DesignPattern/prototype_pattern/manager.hpp
+builder_pattern/builder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/builder.hpp
+builder_pattern/director.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/director.hpp
+builder_pattern/textbuilder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/textbuilder.hpp
+builder_pattern/htmlbuilder.hpp
+/home/inoue/Desktop/DesignPattern/builder_pattern/htmlbuilder.hpp
 
 /home/inoue/Desktop/DesignPattern/prototype_pattern/manager.hpp
 product.hpp

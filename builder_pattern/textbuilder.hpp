@@ -27,7 +27,7 @@ namespace Is
 
         void makeString(const string& str) override
         {
-            ss << "■" << str << std::endl;
+            ss << "■ " << str << std::endl;
             ss << std::endl;
         }
 

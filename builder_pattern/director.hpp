@@ -1,5 +1,5 @@
 #ifndef __DIRECTOR_HPP__
-#define __DIRECTOR_HPP__"
+#define __DIRECTOR_HPP__
 
 #include "builder.hpp"
 
@@ -30,7 +30,7 @@ namespace Is
                                               string("さようなら.")});
             builder->close();
         }
-    }
+    };
 }
 
 #endif

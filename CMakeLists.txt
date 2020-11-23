@@ -4,10 +4,17 @@ project(design_pattern VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-file(GLOB_RECURSE INC_FILES "prototype_pattern/*.hpp")
-message("Include files: ${INC_FILES}")
-file(GLOB_RECURSE SRC_FILES "prototype_pattern/*.cpp")
-message("Source files:  ${SRC_FILES}")
+file(GLOB INC_FILES 
+    "prototype_pattern/*.hpp"
+    "builder_pattern/*.hpp")
+
+message(STATUS "Include files: ${INC_FILES}")
+
+file(GLOB SRC_FILES 
+    "prototype_pattern/*.cpp"
+    "builder_pattern/*.cpp")
+
+message(STATUS "Source files:  ${SRC_FILES}")
 
 add_executable(design_pattern
                main.cpp
