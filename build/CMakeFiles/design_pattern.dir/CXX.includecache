@@ -43,6 +43,10 @@ memory
 /home/inoue/Desktop/DesignPattern/main.cpp
 iostream
 -
+singleton_pattern/singleton_manager-internal.hpp
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager-internal.hpp
+singleton_pattern/singleton.hpp
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton.hpp
 prototype_pattern/product.hpp
 /home/inoue/Desktop/DesignPattern/prototype_pattern/product.hpp
 prototype_pattern/underline.hpp
@@ -98,5 +102,25 @@ memory
 string
 -
 iostream
+-
+
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton.hpp
+
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager-internal.hpp
+singleton_manager.hpp
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.hpp
+iostream
+-
+
+/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.hpp
+mutex
+-
+memory
+-
+unordered_map
+-
+functional
+-
+typeinfo
 -
 

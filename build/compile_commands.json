@@ -3,5 +3,10 @@
   "directory": "/home/inoue/Desktop/DesignPattern/build",
   "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/design_pattern.dir/main.cpp.o -c /home/inoue/Desktop/DesignPattern/main.cpp",
   "file": "/home/inoue/Desktop/DesignPattern/main.cpp"
+},
+{
+  "directory": "/home/inoue/Desktop/DesignPattern/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o -c /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.cpp",
+  "file": "/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.cpp"
 }
 ]

@@ -547,6 +547,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/design_pattern.dir/build.make CMakeFiles/design_pattern.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+singleton_pattern/singleton_manager.o: singleton_pattern/singleton_manager.cpp.o
+
+.PHONY : singleton_pattern/singleton_manager.o
+
+# target to build an object file
+singleton_pattern/singleton_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/design_pattern.dir/build.make CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o
+.PHONY : singleton_pattern/singleton_manager.cpp.o
+
+singleton_pattern/singleton_manager.i: singleton_pattern/singleton_manager.cpp.i
+
+.PHONY : singleton_pattern/singleton_manager.i
+
+# target to preprocess a source file
+singleton_pattern/singleton_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/design_pattern.dir/build.make CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.i
+.PHONY : singleton_pattern/singleton_manager.cpp.i
+
+singleton_pattern/singleton_manager.s: singleton_pattern/singleton_manager.cpp.s
+
+.PHONY : singleton_pattern/singleton_manager.s
+
+# target to generate assembly for a file
+singleton_pattern/singleton_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/design_pattern.dir/build.make CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.s
+.PHONY : singleton_pattern/singleton_manager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -590,6 +617,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... singleton_pattern/singleton_manager.o"
+	@echo "... singleton_pattern/singleton_manager.i"
+	@echo "... singleton_pattern/singleton_manager.s"
 .PHONY : help
 
 

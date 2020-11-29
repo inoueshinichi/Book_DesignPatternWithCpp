@@ -5,12 +5,14 @@ include(CTest)
 enable_testing()
 
 file(GLOB INC_FILES 
+    "singleton_pattern/*.hpp"
     "prototype_pattern/*.hpp"
     "builder_pattern/*.hpp")
 
 message(STATUS "Include files: ${INC_FILES}")
 
 file(GLOB SRC_FILES 
+    "singleton_pattern/*.cpp"
     "prototype_pattern/*.cpp"
     "builder_pattern/*.cpp")
 

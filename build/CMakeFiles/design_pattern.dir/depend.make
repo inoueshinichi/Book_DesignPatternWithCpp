@@ -10,4 +10,11 @@ CMakeFiles/design_pattern.dir/main.cpp.o: ../prototype_pattern/manager.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../prototype_pattern/messagebox.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../prototype_pattern/product.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../prototype_pattern/underline.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../singleton_pattern/singleton.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../singleton_pattern/singleton_manager-internal.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../singleton_pattern/singleton_manager.hpp
+
+CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../singleton_pattern/singleton_manager-internal.hpp
+CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../singleton_pattern/singleton_manager.cpp
+CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../singleton_pattern/singleton_manager.hpp
 

@@ -11,3 +11,10 @@ CMakeFiles/design_pattern.dir/main.cpp.o
  /home/inoue/Desktop/DesignPattern/prototype_pattern/messagebox.hpp
  /home/inoue/Desktop/DesignPattern/prototype_pattern/product.hpp
  /home/inoue/Desktop/DesignPattern/prototype_pattern/underline.hpp
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton.hpp
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager-internal.hpp
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.hpp
+CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager-internal.hpp
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.cpp
+ /home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.hpp

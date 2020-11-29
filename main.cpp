@@ -1,5 +1,9 @@
 #include <iostream>
 
+// Singleton Pattern
+#include "singleton_pattern/singleton_manager-internal.hpp"
+#include "singleton_pattern/singleton.hpp"
+
 // Prototype Pattern
 #include "prototype_pattern/product.hpp"
 #include "prototype_pattern/underline.hpp"
@@ -11,6 +15,43 @@
 #include "builder_pattern/director.hpp"
 #include "builder_pattern/textbuilder.hpp"
 #include "builder_pattern/htmlbuilder.hpp"
+
+
+
+void pattern_singleton()
+{
+    std::printf("==================== pattern_singleton() ====================\n");
+    using namespace Is;
+
+    auto cpu_1 = SingletonManager::getInstance<Cpu>();
+    auto cpu_2 = SingletonManager::getInstance<Cpu>();
+
+    if (cpu_1 == cpu_2)
+    {
+        std::printf("Cpu_1 is the same as Cpu_2; %p == %p\n", cpu_1, cpu_2);
+    }
+    else
+    {
+        std::printf("Cpu_1 is NOT the same as Cpu_2; %p != %p\n", cpu_1, cpu_2);
+    }
+
+    auto gpu_1 = SingletonManager::getInstance<Gpu>();
+    auto gpu_2 = SingletonManager::getInstance<Gpu>();
+
+    if (gpu_1 == gpu_2)
+    {
+        std::printf("Gpu_1 is the same as Gpu_2; %p == %p\n", gpu_1, gpu_2);
+    }
+    else
+    {
+        std::printf("Gpu_1 is NOT the same as Gpu_2; %p != %p\n", gpu_1, gpu_2);
+    }
+    
+
+    std::cout << "今後は、Multi-thread 環境でSingletonManagerが正常動作するかチェック." << std::endl;
+
+
+}
 
 void pattern_prototype()
 {
@@ -55,7 +96,8 @@ void pattern_builder()
 
 int main(int, char**) 
 {    
-    pattern_prototype();
-    pattern_builder();
+    pattern_singleton();
+    // pattern_prototype();
+    // pattern_builder();
     return 0;
 }
