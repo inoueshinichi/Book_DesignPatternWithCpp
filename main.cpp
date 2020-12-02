@@ -97,7 +97,7 @@ void pattern_builder()
 int main(int, char**) 
 {    
     pattern_singleton();
-    // pattern_prototype();
-    // pattern_builder();
+    pattern_prototype();
+    pattern_builder();
     return 0;
 }

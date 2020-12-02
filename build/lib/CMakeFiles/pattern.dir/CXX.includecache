@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/factory_method_pattern/idcard.hpp
+factory_method_pattern/product.hpp
+../include/factory_method_pattern/factory_method_pattern/product.hpp
+memory
+-
+string
+-
+
+../include/factory_method_pattern/product.hpp
+
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp
+factory_method_pattern/idcard.hpp
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/idcard.hpp
+iostream
+-
+

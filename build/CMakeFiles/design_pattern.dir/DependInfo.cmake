@@ -5,16 +5,17 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/inoue/Desktop/DesignPattern/main.cpp" "/home/inoue/Desktop/DesignPattern/build/CMakeFiles/design_pattern.dir/main.cpp.o"
-  "/home/inoue/Desktop/DesignPattern/singleton_pattern/singleton_manager.cpp" "/home/inoue/Desktop/DesignPattern/build/CMakeFiles/design_pattern.dir/singleton_pattern/singleton_manager.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../include"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/inoue/Desktop/DesignPattern/build/lib/CMakeFiles/pattern.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
