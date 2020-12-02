@@ -10,4 +10,3 @@ Java言語で学ぶデザインパターン入門のC++実装</br>
 7章 : Builder</br>
 8章 : Abstract Factory<\br>
 9章 : Bridge</br>
-
