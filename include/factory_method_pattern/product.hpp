@@ -3,9 +3,10 @@
 
 namespace Is
 {
-    class Product
+    class ProductInFactory
     {
     public:
+        virtual ~ProductInFactory() {};
         virtual void use() = 0;
     };
 }

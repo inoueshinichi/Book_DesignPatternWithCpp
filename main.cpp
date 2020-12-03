@@ -1,5 +1,9 @@
 #include <iostream>
 
+// Factory_Method Pattern
+#include "factory_method_pattern/factory.hpp"
+#include "factory_method_pattern/idcard_factory.hpp"
+
 // Singleton Pattern
 #include "singleton_pattern/singleton_manager-internal.hpp"
 #include "singleton_pattern/singleton.hpp"
@@ -16,6 +20,18 @@
 #include "builder_pattern/textbuilder.hpp"
 #include "builder_pattern/htmlbuilder.hpp"
 
+
+void pattern_factory_method()
+{
+    using namespace Is;
+    auto factory = std::static_pointer_cast<Factory>(std::make_shared<IdCardFactory>());
+    auto card1 = factory->create("井上真一");
+    auto card2 = factory->create("井上美里");
+    auto card3 = factory->create("井上早織");
+    card1->use();
+    card2->use();
+    card3->use();
+}
 
 
 void pattern_singleton()
@@ -56,13 +72,14 @@ void pattern_singleton()
 void pattern_prototype()
 {
     std::printf("==================== pattern_prototype() ====================\n");
+    using namespace Is;
 
     // 登録
-    auto upen = static_cast<std::shared_ptr<Is::Product>>(std::make_shared<Is::UnderlinePen>("~"));
+    auto upen = std::static_pointer_cast<Product>(make_shared<Is::UnderlinePen>("~"));
     Is::Manager::register_("strong message", upen);
-    auto mbox = static_cast<std::shared_ptr<Is::Product>>(std::make_shared<Is::MessageBox>("*"));
+    auto mbox = std::static_pointer_cast<Product>(std::make_shared<Is::MessageBox>("*"));
     Is::Manager::register_("warning box", mbox);
-    auto sbox = static_cast<std::shared_ptr<Is::Product>>(std::make_shared<Is::MessageBox>("/"));
+    auto sbox = std::static_pointer_cast<Product>(std::make_shared<Is::MessageBox>("/"));
     Is::Manager::register_("slash box", sbox);
 
     // 生成
@@ -81,13 +98,13 @@ void pattern_builder()
     using namespace Is;
 
     auto textbuilder = std::make_shared<TextBuilder>();
-    Director director_1(static_cast<std::shared_ptr<Builder>>(textbuilder));
+    Director director_1(std::static_pointer_cast<Builder>(textbuilder));
     director_1.construct();
     std::string result_1 = textbuilder->getResult();
     std::cout << result_1 << std::endl;
 
     auto htmlbuilder = std::make_shared<HTMLBuilder>();
-    Director director_2(static_cast<std::shared_ptr<Builder>>(htmlbuilder));
+    Director director_2(std::static_pointer_cast<Builder>(htmlbuilder));
     director_2.construct();
     std::string result_2 = htmlbuilder->getResult();
     std::cout << result_2 << std::endl;
@@ -95,7 +112,8 @@ void pattern_builder()
 
 
 int main(int, char**) 
-{    
+{  
+    pattern_factory_method();  
     pattern_singleton();
     pattern_prototype();
     pattern_builder();

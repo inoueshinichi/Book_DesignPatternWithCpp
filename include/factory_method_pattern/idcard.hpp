@@ -11,7 +11,7 @@ namespace Is
     using std::shared_ptr;
     using std::string;
 
-    class IdCard : public Product
+    class IdCard : public ProductInFactory
     {
         string owner_;
 

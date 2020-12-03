@@ -9,16 +9,17 @@ namespace Is
     using std::shared_ptr;
     using std::string;
 
-    class Product;
+    class ProductInFactory;
 
     class Factory
     {
     public:
-        shared_ptr<Product> create(const string& owner);
+        virtual ~Factory() {};
+        shared_ptr<ProductInFactory> create(const string& owner);
 
     protected:
-        virtual shared_ptr<Product>&& createProduct(const string& owner) = 0;
-        virtual void registerProduct(shared_ptr<Product> product) = 0;
+        virtual shared_ptr<ProductInFactory> createProduct(const string& owner) = 0;
+        virtual void registerProduct(shared_ptr<ProductInFactory> product) = 0;
     };
 }
 

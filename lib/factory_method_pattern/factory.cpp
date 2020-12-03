@@ -10,9 +10,9 @@ namespace Is
      * @param owner 
      * @return shared_ptr<Product> 
      */
-    shared_ptr<Product> Factory::create(const string& owner)
+    shared_ptr<ProductInFactory> Factory::create(const string& owner)
     {
-        shared_ptr<Product> p = static_cast<shared_ptr<Product>>(this->createProduct(owner));
+        shared_ptr<ProductInFactory> p = this->createProduct(owner);
         this->registerProduct(p);
         return p;
     }
