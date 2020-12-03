@@ -260,6 +260,33 @@ factory_method_pattern/idcard.cpp.s:
 	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s
 .PHONY : factory_method_pattern/idcard.cpp.s
 
+factory_method_pattern/idcard_factory.o: factory_method_pattern/idcard_factory.cpp.o
+
+.PHONY : factory_method_pattern/idcard_factory.o
+
+# target to build an object file
+factory_method_pattern/idcard_factory.cpp.o:
+	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o
+.PHONY : factory_method_pattern/idcard_factory.cpp.o
+
+factory_method_pattern/idcard_factory.i: factory_method_pattern/idcard_factory.cpp.i
+
+.PHONY : factory_method_pattern/idcard_factory.i
+
+# target to preprocess a source file
+factory_method_pattern/idcard_factory.cpp.i:
+	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i
+.PHONY : factory_method_pattern/idcard_factory.cpp.i
+
+factory_method_pattern/idcard_factory.s: factory_method_pattern/idcard_factory.cpp.s
+
+.PHONY : factory_method_pattern/idcard_factory.s
+
+# target to generate assembly for a file
+factory_method_pattern/idcard_factory.cpp.s:
+	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s
+.PHONY : factory_method_pattern/idcard_factory.cpp.s
+
 prototype_pattern/manager.o: prototype_pattern/manager.cpp.o
 
 .PHONY : prototype_pattern/manager.o
@@ -338,6 +365,9 @@ help:
 	@echo "... factory_method_pattern/idcard.o"
 	@echo "... factory_method_pattern/idcard.i"
 	@echo "... factory_method_pattern/idcard.s"
+	@echo "... factory_method_pattern/idcard_factory.o"
+	@echo "... factory_method_pattern/idcard_factory.i"
+	@echo "... factory_method_pattern/idcard_factory.s"
 	@echo "... prototype_pattern/manager.o"
 	@echo "... prototype_pattern/manager.i"
 	@echo "... prototype_pattern/manager.s"

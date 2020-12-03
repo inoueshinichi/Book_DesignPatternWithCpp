@@ -122,9 +122,22 @@ lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s"
 	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp -o CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s
 
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: lib/CMakeFiles/pattern.dir/flags.make
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../lib/factory_method_pattern/idcard_factory.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o"
+	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp
+
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i"
+	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp > CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i
+
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s"
+	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp -o CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s
+
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o: lib/CMakeFiles/pattern.dir/flags.make
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o: ../lib/prototype_pattern/manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o"
 	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp
 
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.i: cmake_force
@@ -137,7 +150,7 @@ lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.s: cmake_force
 
 lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o: lib/CMakeFiles/pattern.dir/flags.make
 lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../lib/singleton_pattern/singleton_manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o"
 	cd /home/inoue/Desktop/DesignPattern/build/lib && /bin/x86_64-linux-gnu-g++-9  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/singleton_pattern/singleton_manager.cpp
 
 lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.i: cmake_force
@@ -155,6 +168,7 @@ pattern_OBJECTS = \
 "CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o" \
 "CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o" \
 "CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o" \
+"CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o" \
 "CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o" \
 "CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o"
 
@@ -166,11 +180,12 @@ lib/libpattern.so: lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o
+lib/libpattern.so: lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/build.make
 lib/libpattern.so: lib/CMakeFiles/pattern.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX shared library libpattern.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/inoue/Desktop/DesignPattern/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX shared library libpattern.so"
 	cd /home/inoue/Desktop/DesignPattern/build/lib && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pattern.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

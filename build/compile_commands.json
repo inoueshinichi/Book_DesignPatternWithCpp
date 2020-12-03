@@ -31,6 +31,11 @@
 },
 {
   "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
+  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp",
+  "file": "/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp"
+},
+{
+  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
   "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp",
   "file": "/home/inoue/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp"
 },

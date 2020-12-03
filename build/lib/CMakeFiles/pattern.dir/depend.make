@@ -21,6 +21,12 @@ lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o: ../include/facto
 lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o: ../include/factory_method_pattern/product.hpp
 lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o: ../lib/factory_method_pattern/idcard.cpp
 
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../include/factory_method_pattern/factory.hpp
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../include/factory_method_pattern/idcard.hpp
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../include/factory_method_pattern/idcard_factory.hpp
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../include/factory_method_pattern/product.hpp
+lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o: ../lib/factory_method_pattern/idcard_factory.cpp
+
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o: ../include/prototype_pattern/manager.hpp
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o: ../include/prototype_pattern/product.hpp
 lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o: ../lib/prototype_pattern/manager.cpp

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+../include/factory_method_pattern/factory.hpp
+memory
+-
+string
+-
+
 ../include/factory_method_pattern/idcard.hpp
 factory_method_pattern/product.hpp
 ../include/factory_method_pattern/factory_method_pattern/product.hpp
@@ -14,11 +20,29 @@ memory
 string
 -
 
+../include/factory_method_pattern/idcard_factory.hpp
+factory_method_pattern/factory.hpp
+../include/factory_method_pattern/factory_method_pattern/factory.hpp
+factory_method_pattern/idcard.hpp
+../include/factory_method_pattern/factory_method_pattern/idcard.hpp
+memory
+-
+string
+-
+vector
+-
+
 ../include/factory_method_pattern/product.hpp
 
-/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp
-factory_method_pattern/idcard.hpp
-/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/idcard.hpp
-iostream
--
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory.cpp
+factory_method_pattern/factory.hpp
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/factory.hpp
+factory_method_pattern/product.hpp
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/product.hpp
+
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp
+factory_method_pattern/idcard_factory.hpp
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/idcard_factory.hpp
+factory_method_pattern/product.hpp
+/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory_method_pattern/product.hpp
 

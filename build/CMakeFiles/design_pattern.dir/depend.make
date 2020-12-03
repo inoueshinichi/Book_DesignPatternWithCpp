@@ -5,6 +5,10 @@ CMakeFiles/design_pattern.dir/main.cpp.o: ../include/builder_pattern/builder.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/builder_pattern/director.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/builder_pattern/htmlbuilder.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/builder_pattern/textbuilder.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../include/factory_method_pattern/factory.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../include/factory_method_pattern/idcard.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../include/factory_method_pattern/idcard_factory.hpp
+CMakeFiles/design_pattern.dir/main.cpp.o: ../include/factory_method_pattern/product.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/prototype_pattern/manager.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/prototype_pattern/messagebox.hpp
 CMakeFiles/design_pattern.dir/main.cpp.o: ../include/prototype_pattern/product.hpp
