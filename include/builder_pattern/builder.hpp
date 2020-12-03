@@ -11,6 +11,7 @@ namespace Is
     class Builder
     {
     public:
+        virtual ~Builder() {};
         virtual void makeTitle(const string& title) = 0;
         virtual void makeString(const string& str) = 0;
         virtual void makeItems(const vector<string>& items) = 0;

@@ -13,6 +13,7 @@ namespace Is
     class Product
     {
     public:
+        virtual ~Product() {};
         void use(const string& s) { this->useImpl(s); };
         shared_ptr<Product> createClone() { return this->createCloneImpl(); };
 

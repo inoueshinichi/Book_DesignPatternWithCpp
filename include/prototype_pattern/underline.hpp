@@ -36,7 +36,7 @@ namespace Is
 
         shared_ptr<Product> createCloneImpl() override
         {
-            return make_shared<UnderlinePen>(*this); // コピーコンストラクタを伴う
+            return std::static_pointer_cast<Product>(std::make_shared<UnderlinePen>(*this)); // コピーコンストラクタを伴う
         }
     };
 }
