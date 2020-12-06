@@ -1,1 +1,0 @@
-/usr/bin/clang++  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/design_pattern.dir/main.cpp.o  -o design_pattern  -Wl,-rpath,/Users/inoueshinichi/Desktop/DesignPattern/build/lib lib/libpattern.dylib 
