@@ -16,6 +16,6 @@ namespace Is
 
     void CharDisplay::close()
     {
-        std::cout << "<<" << std::endl;
+        std::cout << ">>" << std::endl;
     }
 }

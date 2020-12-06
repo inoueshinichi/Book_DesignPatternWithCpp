@@ -1,5 +1,10 @@
 #include <iostream>
 
+// Template_Method Pattern
+#include "template_method_pattern/abstract_display.hpp"
+#include "template_method_pattern/char_display.hpp"
+#include "template_method_pattern/string_display.hpp"
+
 // Factory_Method Pattern
 #include "factory_method_pattern/factory.hpp"
 #include "factory_method_pattern/idcard_factory.hpp"
@@ -20,9 +25,24 @@
 #include "builder_pattern/textbuilder.hpp"
 #include "builder_pattern/htmlbuilder.hpp"
 
+void pattern_template_method()
+{
+    std::printf("==================== pattern_template_method() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    shared_ptr<AbstractDisplay> d1 = static_pointer_cast<AbstractDisplay>(make_shared<CharDisplay>('H'));
+    shared_ptr<AbstractDisplay> d2 = static_pointer_cast<AbstractDisplay>(make_shared<StringDisplay>("Hello, world."));
+    shared_ptr<AbstractDisplay> d3 = static_pointer_cast<AbstractDisplay>(make_shared<StringDisplay>("こんにちは。"));
+    d1->display();
+    d2->display();
+    d3->display();
+}
+
 
 void pattern_factory_method()
 {
+    std::printf("==================== pattern_factory_method() ====================\n");
     using namespace Is;
     auto factory = std::static_pointer_cast<Factory>(std::make_shared<IdCardFactory>());
     auto card1 = factory->create("井上真一");
@@ -113,6 +133,7 @@ void pattern_builder()
 
 int main(int, char**) 
 {  
+    pattern_template_method();
     pattern_factory_method();  
     pattern_singleton();
     pattern_prototype();

@@ -1,5 +1,5 @@
-#ifndef __TEMPLATE_METHOD_STRING_DISPLAY_HPP__
-#define __TEMPLATE_METHOD_STRING_DISPLAY_HPP__
+#ifndef TEMPLATE_METHOD_STRING_DISPLAY_HPP
+#define TEMPLATE_METHOD_STRING_DISPLAY_HPP
 
 #include "abstract_display.hpp"
 
@@ -14,6 +14,8 @@ namespace Is
         string str_;
         int width_;
 
+        void printLine();
+
     public:
         StringDisplay(const string& str)
             : str_(str), width_(str.length())
@@ -22,6 +24,7 @@ namespace Is
         virtual void open() override;
         virtual void print() override;
         virtual void close() override;
-    }
+
+    };
 }
 #endif
