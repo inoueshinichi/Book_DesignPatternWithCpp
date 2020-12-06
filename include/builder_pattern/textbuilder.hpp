@@ -1,5 +1,5 @@
-#ifndef __TEXTBUILDER_HPP__
-#define __TEXTBUILDER_HPP__
+#ifndef BUILDER_TEXTBUILDER_HPP
+#define BUILDER_TEXTBUILDER_HPP
 
 #include "builder.hpp"
 
@@ -21,9 +21,8 @@ namespace Is
         void makeTitle(const string& title) override;
         void makeString(const string& str) override;
         void makeItems(const vector<string>& items) override;
-        void close();
+        void close() override;
         string getResult() { return ss.str(); }
     };
 }
-
 #endif

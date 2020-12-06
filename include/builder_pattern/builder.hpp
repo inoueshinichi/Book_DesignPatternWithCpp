@@ -1,5 +1,5 @@
-#ifndef __BUILDER_HPP__
-#define __BUILDER_HPP__
+#ifndef BUILDER_BUILDER_HPP
+#define BUILDER_BUILDER_HPP
 #include <string>
 #include <vector>
 
@@ -11,12 +11,11 @@ namespace Is
     class Builder
     {
     public:
-        virtual ~Builder() {};
+        virtual ~Builder() {}
         virtual void makeTitle(const string& title) = 0;
         virtual void makeString(const string& str) = 0;
         virtual void makeItems(const vector<string>& items) = 0;
         virtual void close() = 0;
     };
 }
-
 #endif

@@ -1,47 +1,52 @@
 [
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g   -std=gnu++17 -o CMakeFiles/design_pattern.dir/main.cpp.o -c /home/inoue/Desktop/DesignPattern/main.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/main.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build",
+  "command": "/usr/bin/clang++   -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15   -std=gnu++1z -o CMakeFiles/design_pattern.dir/main.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/main.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/main.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/builder_pattern/director.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/builder_pattern/director.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/builder_pattern/director.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/builder_pattern/director.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/director.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/director.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/builder_pattern/htmlbuilder.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/builder_pattern/htmlbuilder.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/htmlbuilder.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/htmlbuilder.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/builder_pattern/textbuilder.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/builder_pattern/textbuilder.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/textbuilder.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/builder_pattern/textbuilder.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/factory.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/factory.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/factory.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/idcard.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/factory_method_pattern/idcard_factory.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/prototype_pattern/manager.cpp"
 },
 {
-  "directory": "/home/inoue/Desktop/DesignPattern/build/lib",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dpattern_EXPORTS -I/home/inoue/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -fPIC   -std=gnu++17 -o CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o -c /home/inoue/Desktop/DesignPattern/lib/singleton_pattern/singleton_manager.cpp",
-  "file": "/home/inoue/Desktop/DesignPattern/lib/singleton_pattern/singleton_manager.cpp"
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/singleton_pattern/singleton_manager.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/singleton_pattern/singleton_manager.cpp"
+},
+{
+  "directory": "/Users/inoueshinichi/Desktop/DesignPattern/build/lib",
+  "command": "/usr/bin/clang++  -Dpattern_EXPORTS -I/Users/inoueshinichi/Desktop/DesignPattern/include  -O1 -Wall -O0 -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -mmacosx-version-min=10.15 -fPIC   -std=gnu++1z -o CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o -c /Users/inoueshinichi/Desktop/DesignPattern/lib/template_method_pattern/char_display.cpp",
+  "file": "/Users/inoueshinichi/Desktop/DesignPattern/lib/template_method_pattern/char_display.cpp"
 }
 ]

@@ -1,5 +1,5 @@
-#ifndef __PROTOTYPE_PRODUCT_HPP__
-#define __PROTOTYPE_PRODUCT_HPP__
+#ifndef PROTOTYPE_PRODUCT_HPP
+#define PROTOTYPE_PRODUCT_HPP
 
 #include <memory>
 #include <string>
@@ -13,14 +13,13 @@ namespace Is
     class Product
     {
     public:
-        virtual ~Product() {};
-        void use(const string& s) { this->useImpl(s); };
-        shared_ptr<Product> createClone() { return this->createCloneImpl(); };
+        virtual ~Product() {}
+        void use(const string& s) { this->useImpl(s); }
+        shared_ptr<Product> createClone() { return this->createCloneImpl(); }
 
     protected:
         virtual void useImpl(const string& s) = 0;
         virtual shared_ptr<Product> createCloneImpl() = 0;
     };
 }
-
 #endif

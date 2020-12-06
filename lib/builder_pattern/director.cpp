@@ -2,20 +2,10 @@
 
 namespace Is
 {
-    /**
-     * @brief Construct a new Director:: Cirector object
-     * 
-     * @param builder 
-     */
     Director::Director(shared_ptr<Builder> builder)
         : builder_(builder)
     {}
 
-
-    /**
-     * @brief 
-     * 
-     */
     void Director::construct()
     {
         builder_->makeTitle("Greeting");

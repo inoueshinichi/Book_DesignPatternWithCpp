@@ -1,5 +1,5 @@
-#ifndef __PROTOTYPE_MANAGER_HPP__
-#define __PROTOTYPE_MANAGER_HPP__
+#ifndef PROTOTYPE_MANAGER_HPP
+#define PROTOTYPE_MANAGER_HPP
 
 #include "product.hpp"
 
@@ -25,6 +25,4 @@ namespace Is
         static shared_ptr<Product> create(const string& proto_name);
     };
 }
-
-
 #endif

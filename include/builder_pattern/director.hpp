@@ -1,5 +1,5 @@
-#ifndef __DIRECTOR_HPP__
-#define __DIRECTOR_HPP__
+#ifndef DIRECTOR_HPP
+#define DIRECTOR_HPP
 
 #include "builder.hpp"
 
@@ -18,5 +18,4 @@ namespace Is
         void construct();
     };
 }
-
 #endif

@@ -3,11 +3,6 @@
 
 namespace Is
 {
-    /**
-     * @brief 
-     * 
-     * @param title 
-     */
     void HTMLBuilder::makeTitle(const string& title) 
     {
         filename = title + string(".html");
@@ -22,21 +17,11 @@ namespace Is
         
     }
 
-    /**
-     * @brief 
-     * 
-     * @param str 
-     */
     void HTMLBuilder::makeString(const string& str) 
     {
         ofs << "<p>" << str << "</p>" << std::endl;
     }
 
-    /**
-     * @brief 
-     * 
-     * @param items 
-     */
     void HTMLBuilder::makeItems(const vector<string>& items) 
     {
         ofs << "<ul>" << std::endl;
@@ -47,10 +32,7 @@ namespace Is
         ofs << "</ul>" << std::endl;
     }
 
-    /**
-     * @brief 
-     * 
-     */
+    
     void HTMLBuilder::close() 
     {
         ofs << "</body></html>" << std::endl;

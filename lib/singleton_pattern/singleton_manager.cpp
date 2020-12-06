@@ -4,22 +4,12 @@ namespace Is
 {
     SingletonManager *SingletonManager::self_ = nullptr;
 
-    /** 
-     * @brief 
-     * static
-     * @return recursive_mutex& 
-     */
     recursive_mutex& SingletonManager::getRecursiveMutex()
     {
         static recursive_mutex rmtx_{};
         return rmtx_;
     }
 
-    /**
-     * @brief 
-     * static
-     * @return SingletonManager& 
-     */
     SingletonManager& SingletonManager::getSelf()
     {
         // コンストラクタで構築中のオブジェクトには、
@@ -39,12 +29,6 @@ namespace Is
         return *self_;
     }
 
-
-    /**
-     * @brief 
-     * static
-     * @param id 
-     */
     void SingletonManager::eraseById(int id)
     {
         SingletonManager& self = getSelf();
@@ -60,11 +44,6 @@ namespace Is
        self.singletons_.erase(iter); // erase (id, pair<address, deleter>)
     }
 
-
-    /**
-     * @brief 
-     * static
-     */
     void SingletonManager::clear()
     {
         SingletonManager& self = getSelf();

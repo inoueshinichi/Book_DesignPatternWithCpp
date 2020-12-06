@@ -1,5 +1,5 @@
-#ifndef __SINGLETON_SINGLETON_MANAGER_HPP__
-#define __SINGLETON_SINGLETON_MANAGER_HPP__
+#ifndef SINGLETON_SINGLETON_MANAGER_HPP
+#define SINGLETON_SINGLETON_MANAGER_HPP
 
 // #include <thread>
 #include <mutex>
@@ -38,6 +38,4 @@ namespace Is
         static void clear();
     };
 }
-
-
 #endif

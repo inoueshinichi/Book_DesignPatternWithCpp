@@ -1,5 +1,5 @@
-#ifndef __PROTOTYPE_MESSAGEBOX_HPP__
-#define __PROTOTYPE_MESSAGEBOX_HPP__
+#ifndef PROTOTYPE_MESSAGEBOX_HPP
+#define PROTOTYPE_MESSAGEBOX_HPP
 
 #include "product.hpp"
 

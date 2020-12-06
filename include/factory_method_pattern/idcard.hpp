@@ -1,5 +1,5 @@
-#ifndef __FACTORY_METHOD_IDCARD_HPP__
-#define __FACTORY_METHOD_IDCARD_HPP__
+#ifndef FACTORY_METHOD_IDCARD_HPP
+#define FACTORY_METHOD_IDCARD_HPP
 
 #include "factory_method_pattern/product.hpp"
 
@@ -21,5 +21,4 @@ namespace Is
         string& getOwner() { return owner_; }
     };
 }
-
 #endif

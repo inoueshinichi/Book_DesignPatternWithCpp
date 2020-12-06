@@ -35,3 +35,7 @@ lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../include
 lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../include/singleton_pattern/singleton_manager.hpp
 lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o: ../lib/singleton_pattern/singleton_manager.cpp
 
+lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o: ../include/template_method_pattern/abstract_display.hpp
+lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o: ../include/template_method_pattern/char_display.hpp
+lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o: ../lib/template_method_pattern/char_display.cpp
+

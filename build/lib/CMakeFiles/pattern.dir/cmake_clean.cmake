@@ -7,8 +7,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o"
   "CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o"
   "CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o"
+  "CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o"
+  "libpattern.dylib"
   "libpattern.pdb"
-  "libpattern.so"
 )
 
 # Per-language clean rules from dependency scanning.

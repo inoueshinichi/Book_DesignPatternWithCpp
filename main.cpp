@@ -44,11 +44,11 @@ void pattern_singleton()
 
     if (cpu_1 == cpu_2)
     {
-        std::printf("Cpu_1 is the same as Cpu_2; %p == %p\n", cpu_1, cpu_2);
+        std::printf("Cpu_1 is the same as Cpu_2; %p == %p\n", (void*)cpu_1, (void*)cpu_2);
     }
     else
     {
-        std::printf("Cpu_1 is NOT the same as Cpu_2; %p != %p\n", cpu_1, cpu_2);
+        std::printf("Cpu_1 is NOT the same as Cpu_2; %p != %p\n", (void*)cpu_1, (void*)cpu_2);
     }
 
     auto gpu_1 = SingletonManager::getInstance<Gpu>();
@@ -56,11 +56,11 @@ void pattern_singleton()
 
     if (gpu_1 == gpu_2)
     {
-        std::printf("Gpu_1 is the same as Gpu_2; %p == %p\n", gpu_1, gpu_2);
+        std::printf("Gpu_1 is the same as Gpu_2; %p == %p\n", (void*)gpu_1, (void*)gpu_2);
     }
     else
     {
-        std::printf("Gpu_1 is NOT the same as Gpu_2; %p != %p\n", gpu_1, gpu_2);
+        std::printf("Gpu_1 is NOT the same as Gpu_2; %p != %p\n", (void*)gpu_1, (void*)gpu_2);
     }
     
 

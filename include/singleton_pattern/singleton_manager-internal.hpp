@@ -1,5 +1,5 @@
-#ifndef __SINGLETON_SINGLETON_MANAGER_INTERNAL_HPP__
-#define __SINGLETON_SINGLETON_MANAGER_INTERNAL_HPP__
+#ifndef SINGLETON_SINGLETON_MANAGER_INTERNAL_HPP
+#define SINGLETON_SINGLETON_MANAGER_INTERNAL_HPP
 
 #include "singleton_manager.hpp"
 
@@ -7,12 +7,6 @@
 
 namespace Is
 {
-    /**
-     * @brief 
-     * static
-     * @tparam SINGLETON 
-     * @return SINGLETON* 
-     */
     template<typename SINGLETON> 
     SINGLETON* SingletonManager::getInstance()
     {
@@ -43,12 +37,6 @@ namespace Is
         return instance;
     }
 
-    /**
-     * @brief 
-     * static
-     * @tparam SINGLETON 
-     * @return int 
-     */
     template <typename SINGLETON> int SingletonManager::getId()
     {
         SingletonManager& self = getSelf();
@@ -56,11 +44,6 @@ namespace Is
         return self.address2id_[address];
     }
 
-    /**
-     * @brief 
-     * static
-     * @tparam SINGLETON 
-     */
     template <typename SINGLETON> void SingletonManager::erase()
     {
         eraseById(getId<SINGLETON>());

@@ -1,5 +1,5 @@
-#ifndef __HTMLBUILDER_HPP__
-#define __HTMLBUILDER_HPP__
+#ifndef BUILDER_HTMLBUILDER_HPP
+#define BUILDER_HTMLBUILDER_HPP
 
 #include "builder.hpp"
 
@@ -24,8 +24,7 @@ namespace Is
         void makeString(const string& str) override;
         void makeItems(const vector<string>& items) override;
         void close() override;
-        string getResult() { return filename; };
+        string getResult() { return filename; }
     };
 }
-
 #endif

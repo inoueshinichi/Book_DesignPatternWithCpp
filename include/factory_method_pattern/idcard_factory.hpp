@@ -1,5 +1,5 @@
-#ifndef __FACTORY_METHOD_IDCARD_FACTORY_HPP__
-#define __FACTORY_METHOD_IDCARD_FACTORY_HPP__
+#ifndef FACTORY_METHOD_IDCARD_FACTORY_HPP
+#define FACTORY_METHOD_IDCARD_FACTORY_HPP
 
 #include "factory_method_pattern/factory.hpp"
 #include "factory_method_pattern/idcard.hpp"
@@ -26,5 +26,4 @@ namespace Is
         vector<shared_ptr<IdCard>>& getOwners();
     };
 }
-
 #endif

@@ -39,38 +39,27 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.16.3/bin/cmake
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.16.3/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/inoue/Desktop/DesignPattern
+CMAKE_SOURCE_DIR = /Users/inoueshinichi/Desktop/DesignPattern
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/inoue/Desktop/DesignPattern/build
+CMAKE_BINARY_DIR = /Users/inoueshinichi/Desktop/DesignPattern/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/Cellar/cmake/3.16.3/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -78,16 +67,27 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/Cellar/cmake/3.16.3/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/inoue/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/inoue/Desktop/DesignPattern/build/CMakeFiles /home/inoue/Desktop/DesignPattern/build/lib/CMakeFiles/progress.marks
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/inoue/Desktop/DesignPattern/build/CMakeFiles 0
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/inoueshinichi/Desktop/DesignPattern/build/CMakeFiles /Users/inoueshinichi/Desktop/DesignPattern/build/lib/CMakeFiles/progress.marks
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/inoueshinichi/Desktop/DesignPattern/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/clean
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/preinstall
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/preinstall
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/inoue/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 lib/CMakeFiles/pattern.dir/rule:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/CMakeFiles/pattern.dir/rule
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f CMakeFiles/Makefile2 lib/CMakeFiles/pattern.dir/rule
 .PHONY : lib/CMakeFiles/pattern.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ pattern: lib/CMakeFiles/pattern.dir/rule
 
 # fast build rule for target.
 pattern/fast:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/build
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/build
 .PHONY : pattern/fast
 
 builder_pattern/director.o: builder_pattern/director.cpp.o
@@ -131,7 +131,7 @@ builder_pattern/director.o: builder_pattern/director.cpp.o
 
 # target to build an object file
 builder_pattern/director.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.o
 .PHONY : builder_pattern/director.cpp.o
 
 builder_pattern/director.i: builder_pattern/director.cpp.i
@@ -140,7 +140,7 @@ builder_pattern/director.i: builder_pattern/director.cpp.i
 
 # target to preprocess a source file
 builder_pattern/director.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.i
 .PHONY : builder_pattern/director.cpp.i
 
 builder_pattern/director.s: builder_pattern/director.cpp.s
@@ -149,7 +149,7 @@ builder_pattern/director.s: builder_pattern/director.cpp.s
 
 # target to generate assembly for a file
 builder_pattern/director.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/director.cpp.s
 .PHONY : builder_pattern/director.cpp.s
 
 builder_pattern/htmlbuilder.o: builder_pattern/htmlbuilder.cpp.o
@@ -158,7 +158,7 @@ builder_pattern/htmlbuilder.o: builder_pattern/htmlbuilder.cpp.o
 
 # target to build an object file
 builder_pattern/htmlbuilder.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.o
 .PHONY : builder_pattern/htmlbuilder.cpp.o
 
 builder_pattern/htmlbuilder.i: builder_pattern/htmlbuilder.cpp.i
@@ -167,7 +167,7 @@ builder_pattern/htmlbuilder.i: builder_pattern/htmlbuilder.cpp.i
 
 # target to preprocess a source file
 builder_pattern/htmlbuilder.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.i
 .PHONY : builder_pattern/htmlbuilder.cpp.i
 
 builder_pattern/htmlbuilder.s: builder_pattern/htmlbuilder.cpp.s
@@ -176,7 +176,7 @@ builder_pattern/htmlbuilder.s: builder_pattern/htmlbuilder.cpp.s
 
 # target to generate assembly for a file
 builder_pattern/htmlbuilder.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/htmlbuilder.cpp.s
 .PHONY : builder_pattern/htmlbuilder.cpp.s
 
 builder_pattern/textbuilder.o: builder_pattern/textbuilder.cpp.o
@@ -185,7 +185,7 @@ builder_pattern/textbuilder.o: builder_pattern/textbuilder.cpp.o
 
 # target to build an object file
 builder_pattern/textbuilder.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.o
 .PHONY : builder_pattern/textbuilder.cpp.o
 
 builder_pattern/textbuilder.i: builder_pattern/textbuilder.cpp.i
@@ -194,7 +194,7 @@ builder_pattern/textbuilder.i: builder_pattern/textbuilder.cpp.i
 
 # target to preprocess a source file
 builder_pattern/textbuilder.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.i
 .PHONY : builder_pattern/textbuilder.cpp.i
 
 builder_pattern/textbuilder.s: builder_pattern/textbuilder.cpp.s
@@ -203,7 +203,7 @@ builder_pattern/textbuilder.s: builder_pattern/textbuilder.cpp.s
 
 # target to generate assembly for a file
 builder_pattern/textbuilder.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/builder_pattern/textbuilder.cpp.s
 .PHONY : builder_pattern/textbuilder.cpp.s
 
 factory_method_pattern/factory.o: factory_method_pattern/factory.cpp.o
@@ -212,7 +212,7 @@ factory_method_pattern/factory.o: factory_method_pattern/factory.cpp.o
 
 # target to build an object file
 factory_method_pattern/factory.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.o
 .PHONY : factory_method_pattern/factory.cpp.o
 
 factory_method_pattern/factory.i: factory_method_pattern/factory.cpp.i
@@ -221,7 +221,7 @@ factory_method_pattern/factory.i: factory_method_pattern/factory.cpp.i
 
 # target to preprocess a source file
 factory_method_pattern/factory.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.i
 .PHONY : factory_method_pattern/factory.cpp.i
 
 factory_method_pattern/factory.s: factory_method_pattern/factory.cpp.s
@@ -230,7 +230,7 @@ factory_method_pattern/factory.s: factory_method_pattern/factory.cpp.s
 
 # target to generate assembly for a file
 factory_method_pattern/factory.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/factory.cpp.s
 .PHONY : factory_method_pattern/factory.cpp.s
 
 factory_method_pattern/idcard.o: factory_method_pattern/idcard.cpp.o
@@ -239,7 +239,7 @@ factory_method_pattern/idcard.o: factory_method_pattern/idcard.cpp.o
 
 # target to build an object file
 factory_method_pattern/idcard.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.o
 .PHONY : factory_method_pattern/idcard.cpp.o
 
 factory_method_pattern/idcard.i: factory_method_pattern/idcard.cpp.i
@@ -248,7 +248,7 @@ factory_method_pattern/idcard.i: factory_method_pattern/idcard.cpp.i
 
 # target to preprocess a source file
 factory_method_pattern/idcard.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.i
 .PHONY : factory_method_pattern/idcard.cpp.i
 
 factory_method_pattern/idcard.s: factory_method_pattern/idcard.cpp.s
@@ -257,7 +257,7 @@ factory_method_pattern/idcard.s: factory_method_pattern/idcard.cpp.s
 
 # target to generate assembly for a file
 factory_method_pattern/idcard.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard.cpp.s
 .PHONY : factory_method_pattern/idcard.cpp.s
 
 factory_method_pattern/idcard_factory.o: factory_method_pattern/idcard_factory.cpp.o
@@ -266,7 +266,7 @@ factory_method_pattern/idcard_factory.o: factory_method_pattern/idcard_factory.c
 
 # target to build an object file
 factory_method_pattern/idcard_factory.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.o
 .PHONY : factory_method_pattern/idcard_factory.cpp.o
 
 factory_method_pattern/idcard_factory.i: factory_method_pattern/idcard_factory.cpp.i
@@ -275,7 +275,7 @@ factory_method_pattern/idcard_factory.i: factory_method_pattern/idcard_factory.c
 
 # target to preprocess a source file
 factory_method_pattern/idcard_factory.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.i
 .PHONY : factory_method_pattern/idcard_factory.cpp.i
 
 factory_method_pattern/idcard_factory.s: factory_method_pattern/idcard_factory.cpp.s
@@ -284,7 +284,7 @@ factory_method_pattern/idcard_factory.s: factory_method_pattern/idcard_factory.c
 
 # target to generate assembly for a file
 factory_method_pattern/idcard_factory.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/factory_method_pattern/idcard_factory.cpp.s
 .PHONY : factory_method_pattern/idcard_factory.cpp.s
 
 prototype_pattern/manager.o: prototype_pattern/manager.cpp.o
@@ -293,7 +293,7 @@ prototype_pattern/manager.o: prototype_pattern/manager.cpp.o
 
 # target to build an object file
 prototype_pattern/manager.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.o
 .PHONY : prototype_pattern/manager.cpp.o
 
 prototype_pattern/manager.i: prototype_pattern/manager.cpp.i
@@ -302,7 +302,7 @@ prototype_pattern/manager.i: prototype_pattern/manager.cpp.i
 
 # target to preprocess a source file
 prototype_pattern/manager.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.i
 .PHONY : prototype_pattern/manager.cpp.i
 
 prototype_pattern/manager.s: prototype_pattern/manager.cpp.s
@@ -311,7 +311,7 @@ prototype_pattern/manager.s: prototype_pattern/manager.cpp.s
 
 # target to generate assembly for a file
 prototype_pattern/manager.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/prototype_pattern/manager.cpp.s
 .PHONY : prototype_pattern/manager.cpp.s
 
 singleton_pattern/singleton_manager.o: singleton_pattern/singleton_manager.cpp.o
@@ -320,7 +320,7 @@ singleton_pattern/singleton_manager.o: singleton_pattern/singleton_manager.cpp.o
 
 # target to build an object file
 singleton_pattern/singleton_manager.cpp.o:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.o
 .PHONY : singleton_pattern/singleton_manager.cpp.o
 
 singleton_pattern/singleton_manager.i: singleton_pattern/singleton_manager.cpp.i
@@ -329,7 +329,7 @@ singleton_pattern/singleton_manager.i: singleton_pattern/singleton_manager.cpp.i
 
 # target to preprocess a source file
 singleton_pattern/singleton_manager.cpp.i:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.i
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.i
 .PHONY : singleton_pattern/singleton_manager.cpp.i
 
 singleton_pattern/singleton_manager.s: singleton_pattern/singleton_manager.cpp.s
@@ -338,8 +338,35 @@ singleton_pattern/singleton_manager.s: singleton_pattern/singleton_manager.cpp.s
 
 # target to generate assembly for a file
 singleton_pattern/singleton_manager.cpp.s:
-	cd /home/inoue/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.s
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/singleton_pattern/singleton_manager.cpp.s
 .PHONY : singleton_pattern/singleton_manager.cpp.s
+
+template_method_pattern/char_display.o: template_method_pattern/char_display.cpp.o
+
+.PHONY : template_method_pattern/char_display.o
+
+# target to build an object file
+template_method_pattern/char_display.cpp.o:
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.o
+.PHONY : template_method_pattern/char_display.cpp.o
+
+template_method_pattern/char_display.i: template_method_pattern/char_display.cpp.i
+
+.PHONY : template_method_pattern/char_display.i
+
+# target to preprocess a source file
+template_method_pattern/char_display.cpp.i:
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.i
+.PHONY : template_method_pattern/char_display.cpp.i
+
+template_method_pattern/char_display.s: template_method_pattern/char_display.cpp.s
+
+.PHONY : template_method_pattern/char_display.s
+
+# target to generate assembly for a file
+template_method_pattern/char_display.cpp.s:
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(MAKE) -f lib/CMakeFiles/pattern.dir/build.make lib/CMakeFiles/pattern.dir/template_method_pattern/char_display.cpp.s
+.PHONY : template_method_pattern/char_display.cpp.s
 
 # Help Target
 help:
@@ -347,8 +374,8 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... pattern"
 	@echo "... builder_pattern/director.o"
 	@echo "... builder_pattern/director.i"
@@ -374,6 +401,9 @@ help:
 	@echo "... singleton_pattern/singleton_manager.o"
 	@echo "... singleton_pattern/singleton_manager.i"
 	@echo "... singleton_pattern/singleton_manager.s"
+	@echo "... template_method_pattern/char_display.o"
+	@echo "... template_method_pattern/char_display.i"
+	@echo "... template_method_pattern/char_display.s"
 .PHONY : help
 
 
@@ -385,6 +415,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/inoue/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/inoueshinichi/Desktop/DesignPattern/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
