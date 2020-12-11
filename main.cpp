@@ -1,5 +1,10 @@
 #include <iostream>
 
+// Iterator Pattern
+#include "iterator_pattern/book.hpp"
+#include "iterator_pattern/bookshelf.hpp"
+#include "iterator_pattern/iterator.hpp"
+
 // Template_Method Pattern
 #include "template_method_pattern/abstract_display.hpp"
 #include "template_method_pattern/char_display.hpp"
@@ -24,6 +29,36 @@
 #include "builder_pattern/director.hpp"
 #include "builder_pattern/textbuilder.hpp"
 #include "builder_pattern/htmlbuilder.hpp"
+
+
+void pattern_iterator()
+{
+    std::printf("==================== pattern_iterator() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    BookShelf bookshelf(4);
+    bookshelf.appendBook(std::move(Book("Around the World in 80 Days.")));
+    bookshelf.appendBook(std::move(Book("Bible")));
+    bookshelf.appendBook(std::move(Book("Cinderella")));
+    bookshelf.appendBook(std::move(Book("Daddy-Long-Legs")));
+
+    auto iter_sp = bookshelf.iterator();
+    while (iter_sp->hasNext())
+    {
+        Book* book = static_cast<Book*>(iter_sp->next());
+        std::cout << book->getName() << std::endl;
+    }
+}
+
+
+void pattern_adapter()
+{
+    std::printf("==================== pattern_adapter() ====================\n");
+    using namespace Is;
+    using namespace std;
+}
+
 
 void pattern_template_method()
 {
@@ -133,6 +168,8 @@ void pattern_builder()
 
 int main(int, char**) 
 {  
+    pattern_iterator();
+    pattern_adapter();
     pattern_template_method();
     pattern_factory_method();  
     pattern_singleton();

@@ -20,13 +20,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
 if(MSVC) 
-    message(STATUS "Compiler: MSVC")
+    message(STATUS "Compiler: MSVC in Windows")
 
     # Build Options
     string(REGEX REPLACE "/W[0-4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}") # デフォルトの`/W[0-4]`を削除
     set(CMAKE_CXX_FLAGS "/DWIN32 /D_WINDOWS /GR /EHsc /W4")
-    set(CMAKE_CXX_FLAGS_DEBUG "/Ob0 /Od /MDd /Zi /RTC1")
-    set(CMAKE_CXX_FLAGS_RELEASE "/Ob2 /O2 /MD /DNDEBUG")
+    set(CMAKE_CXX_FLAGS_DEBUG "/Ob0 /Od /MDd /Zi /RTC1") # /MDd or /Od が指定されている場合、#include <windows>内部で_DEBUGマクロが定義される
+    set(CMAKE_CXX_FLAGS_RELEASE "/Ob2 /O2 /MD /DNDEBUG") # /DNDEBUGマクロはstatic_assert()で利用する
     set(CMAKE_CXX_FLAGS_MINSIZEREL "/O1 /MD /DNDEBUG")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/Od /MDd /Zi /RTC1 /D_DEBUG")
 
@@ -41,7 +41,7 @@ if(MSVC)
     add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>)
 
 elseif(APPLE)
-    message(STATUS "Compiler: Clang")    
+    message(STATUS "Compiler: Clang in macOS")    
 
     # Build Options(マルチコンフィギュレーション:visual studio対応)
     set(CMAKE_CXX_FLAGS "-O1")
@@ -63,7 +63,7 @@ elseif(APPLE)
     add_compile_options($<$<CXX_COMPILER_ID:Clang>:/Zc:__cplusplus>)  
     
 else()
-    message(STATUS "Compiler: GCC")
+    message(STATUS "Compiler: GCC in Linux")
 
     # Build Options(マルチコンフィギュレーション:visual studio対応)
     set(CMAKE_CXX_FLAGS "-O1")
