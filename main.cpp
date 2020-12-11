@@ -5,6 +5,10 @@
 #include "iterator_pattern/bookshelf.hpp"
 #include "iterator_pattern/iterator.hpp"
 
+// Adapter Pattern
+#include "adapter_pattern/printbanner.hpp"
+//#include "adapter_pattern/print.hpp"
+
 // Template_Method Pattern
 #include "template_method_pattern/abstract_display.hpp"
 #include "template_method_pattern/char_display.hpp"
@@ -57,6 +61,10 @@ void pattern_adapter()
     std::printf("==================== pattern_adapter() ====================\n");
     using namespace Is;
     using namespace std;
+
+    auto print_sp = static_pointer_cast<Print>(make_shared<PrintBanner>("Hello"));
+    print_sp->printWeak();
+    print_sp->printStrong();
 }
 
 
