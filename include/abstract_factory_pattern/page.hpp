@@ -27,6 +27,7 @@ namespace Is
     public:
         Page(const string& title, const string& author) : title_(title), author_(author) {}
         void add(shared_ptr<Item> item) { content_.push_back(item); }
+        
         void output()
         {
             try

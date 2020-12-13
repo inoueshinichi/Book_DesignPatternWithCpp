@@ -9,6 +9,7 @@ namespace Is
     
     class Item
     {
+    protected:
         string caption_;
 
     public:
