@@ -34,6 +34,10 @@
 #include "builder_pattern/textbuilder.hpp"
 #include "builder_pattern/htmlbuilder.hpp"
 
+// Abstract Factory Pattern
+#include "abstract_factory_pattern/abstract_factory.hpp"
+#include "abstract_factory_pattern/listfactory.hpp"
+
 
 void pattern_iterator()
 {
@@ -171,6 +175,43 @@ void pattern_builder()
     director_2.construct();
     std::string result_2 = htmlbuilder->getResult();
     std::cout << result_2 << std::endl;
+}
+
+
+void pattern_abstract_factory()
+{
+    std::printf("==================== pattern_abstract_factory() ====================\n");
+    using namespace Is;
+
+    // Register
+    AbstractFactory::addFactory<ListFactory>();
+
+    // Use
+    auto factory = std::static_pointer_cast<AbstractFactory>(AbstractFactory::getFactory("ListFactory"));
+    shared_ptr<Link> asahi = factory->createLink("朝日新聞", "http://www.asahi.com/");
+    shared_ptr<Link> yomiuri = factory->createLink("読売新聞", "http://www.yomiuri.com/");
+    shared_ptr<Link> us_yahoo = factory->createLink("Yahoo!", "http://www.yahoo.com/");
+    shared_ptr<Link> jp_yahoo = factory->createLink("Yahoo!Japan", "http://www.yahoo.co.jp/");
+    shared_ptr<Link> excite = factory->createLink("Excite", "http://www.excite.com/");
+    shared_ptr<Link> google = factory->createLink("Google", "http://www.google.com/");
+
+    shared_ptr<Tray> traynews = factory->createTray("新聞");
+    traynews->add(std::static_pointer_cast<Item>(asahi));
+    traynews->add(std::static_pointer_cast<Item>(yomiuri));
+
+    shared_ptr<Tray> trayyahoo = factory->createTray("Yahoo!");
+    trayyahoo->add(std::static_pointer_cast<Item>(us_yahoo));
+    trayyahoo->add(std::static_pointer_cast<Item>(jp_yahoo));
+
+    shared_ptr<Tray> traysearch = factory->createTray("サーチエンジン");
+    traysearch->add(std::static_pointer_cast<Item>(trayyahoo));
+    traysearch->add(std::static_pointer_cast<Item>(excite));
+    traysearch->add(std::static_pointer_cast<Item>(google));
+
+    auto page = factory->createPage("LinkPage", "井上 真一");
+    page->add(std::static_pointer_cast<Item>(traynews));
+    page->add(std::static_pointer_cast<Item>(traysearch));
+    page->output();
 }
 
 

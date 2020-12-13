@@ -2,6 +2,7 @@
     "files.associations": {
         "mutex": "cpp",
         "fstream": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "stdexcept": "cpp"
     }
 }
