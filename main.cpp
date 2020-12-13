@@ -36,7 +36,7 @@
 
 // Abstract Factory Pattern
 #include "abstract_factory_pattern/abstract_factory.hpp"
-#include "abstract_factory_pattern/listfactory.hpp"
+#include "abstract_factory_pattern/list_factory/listfactory.hpp"
 
 
 void pattern_iterator()
@@ -187,7 +187,7 @@ void pattern_abstract_factory()
     AbstractFactory::addFactory<ListFactory>();
 
     // Use
-    auto factory = std::static_pointer_cast<AbstractFactory>(AbstractFactory::getFactory("ListFactory"));
+    auto factory = std::static_pointer_cast<AbstractFactory>(AbstractFactory::getFactory("Is::ListFactory"));
     shared_ptr<Link> asahi = factory->createLink("朝日新聞", "http://www.asahi.com/");
     shared_ptr<Link> yomiuri = factory->createLink("読売新聞", "http://www.yomiuri.com/");
     shared_ptr<Link> us_yahoo = factory->createLink("Yahoo!", "http://www.yahoo.com/");
@@ -224,5 +224,7 @@ int main(int, char**)
     pattern_singleton();
     pattern_prototype();
     pattern_builder();
+    pattern_abstract_factory();
+
     return 0;
 }
