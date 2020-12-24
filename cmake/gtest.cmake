@@ -90,7 +90,7 @@ ExternalProject_Add(
 ExternalProject_Get_Property(${GTEST_TARGET} INSTALL_DIR)
 
 # pthread for googletest
-# find_package(Threads REQUIRED)
+find_package(Threads REQUIRED)
 
 # Make GTest::GTest & GTest::GMock
 if(GTEST_SHARED_LIB)
@@ -98,7 +98,7 @@ if(GTEST_SHARED_LIB)
   set_target_properties(GTest::GTest PROPERTIES
     IMPORTED_LOCATION ${INSTALL_DIR}/lib/libgtest.so # shared library
     INTERFACE_INCLUDE_DIRECTORIES ${INSTALL_DIR}/include
-    INTERFACE_LINK_LIBRARIES pthread#Threads::Threads
+    INTERFACE_LINK_LIBRARIES Threads::Threads
   )
   add_dependencies(GTest::GTest ${GTEST_TARGET})
 
@@ -106,7 +106,7 @@ if(GTEST_SHARED_LIB)
   set_target_properties(GTest::GMock PROPERTIES
     IMPORTED_LOCATION ${INSTALL_DIR}/lib/libgmock.so # shared library
     INTERFACE_INCLUDE_DIRECTORIES ${INSTALL_DIR}/include
-    INTERFACE_LINK_LIBRARIES pthread#Threads::Threads
+    INTERFACE_LINK_LIBRARIES Threads::Threads
   )
   add_dependencies(GTest::GMock ${GTEST_TARGET})
 else()
@@ -114,7 +114,7 @@ add_library(GTest::GTest STATIC IMPORTED)
   set_target_properties(GTest::GTest PROPERTIES
     IMPORTED_IMPLIB ${INSTALL_DIR}/lib/libgtest.a # static library
     INTERFACE_INCLUDE_DIRECTORIES ${INSTALL_DIR}/include
-    INTERFACE_LINK_LIBRARIES pthread#Threads::Threads
+    INTERFACE_LINK_LIBRARIES Threads::Threads
   )
   add_dependencies(GTest::GTest ${GTEST_TARGET})
 
@@ -122,7 +122,7 @@ add_library(GTest::GTest STATIC IMPORTED)
   set_target_properties(GTest::GMock PROPERTIES
     IMPORTED_IMPLIB ${INSTALL_DIR}/lib/libgmock.a # static library
     INTERFACE_INCLUDE_DIRECTORIES ${INSTALL_DIR}/include
-    INTERFACE_LINK_LIBRARIES pthread#Threads::Threads
+    INTERFACE_LINK_LIBRARIES Threads::Threads
   )
   add_dependencies(GTest::GMock ${GTEST_TARGET})
 endif()
