@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.16.3)
+
 project(design_pattern VERSION 0.1.0)
+
 
 # CMake Version
 message("CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}.${CMAKE_TWEAK_VERSION}")
@@ -8,12 +10,13 @@ message("CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PA
 
 # Switching
 option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
-option(BUILD_CPP_TEST "Building test" OFF)
+option(BUILD_CPP_TEST "Building test" ON)
 set(BUILD_SHARED_LIBS ON)
 
 ###############################################################################
 # 全ターゲットに影響を与えるオプション
 ###############################################################################
+message(STATUS "========== [START] C++ All Target Options ==========")
 # C++17
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -108,6 +111,7 @@ else()
     add_compile_options($<$<CXX_COMPILER_ID:GCC>:/Zc:__cplusplus>)
 endif()
 
+message(STATUS "========== [END] C++ All Target Options ==========")
 
 
 
@@ -115,27 +119,42 @@ endif()
 ###############################################################################
 # C++ core
 ###############################################################################
-list(APPEND DESIGN_PATTERN_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
-include_directories(${DESIGN_PATTERN_INCLUDE_DIR})
+message(STATUS "========== [START] C++ Build Core ==========")
+
+list(APPEND DESIGN_PATTERN_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 message(STATUS "Include dir: ${DESIGN_PATTERN_INCLUDE_DIR}")
 
 message(STATUS "ライブラリを作成します.")
-add_subdirectory(${PROJECT_SOURCE_DIR}/lib)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 message(STATUS "実行ファイルを作成します.")
-add_executable(design_pattern main.cpp)
-target_link_libraries(design_pattern PRIVATE pattern)
-# target_include_directories(design_pattern PUBLIC ${PROJECT_SOURCE_DIR}/include)   
+add_executable(design_pattern 
+    ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+)
+target_include_directories(design_pattern
+     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
+) 
+target_link_directories(design_pattern
+    PRIVATE ${CMAKE_BINARY_DIR}/lib
+)
+target_link_libraries(design_pattern
+    PRIVATE pattern
+)
+
+message(STATUS "========== [END] C++ Build Core ==========")
 
 ###############################################################################
 # C++ Testing
 ###############################################################################
+message(STATUS "========== [START] Test ==========")
 
-# # Google Test
-# if(BUILD_CPP_TEST)
-#     add_subdirectory(${PROJECT_SOURCE_DIR}/third-party)
-#     add_subdirectory(${PROJECT_SOURCE_DIR}/test)
-# endif()
+# Google Test
+if(BUILD_CPP_TEST)
+    add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+    # enable_testing()
+    # add_subdirectory(${PROJECT_SOURCE_DIR}/third-party)
+    
+endif()
 
 
 # include(CTest)
@@ -143,3 +162,6 @@ target_link_libraries(design_pattern PRIVATE pattern)
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 # set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 # include(CPack)
+
+
+message(STATUS "========== [END] Test ==========")
