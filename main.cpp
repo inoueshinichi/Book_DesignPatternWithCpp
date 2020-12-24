@@ -37,6 +37,8 @@
 // Abstract Factory Pattern
 #include "abstract_factory_pattern/abstract_factory.hpp"
 #include "abstract_factory_pattern/list_factory/listfactory.hpp"
+#include "abstract_factory_pattern/table_factory/table_factory.hpp"
+
 
 
 void pattern_iterator()
@@ -212,6 +214,37 @@ void pattern_abstract_factory()
     page->add(std::static_pointer_cast<Item>(traynews));
     page->add(std::static_pointer_cast<Item>(traysearch));
     page->output();
+
+
+    // Register
+    AbstractFactory::addFactory<TableFactory>();
+
+    // Use
+    auto factory_2 = std::static_pointer_cast<AbstractFactory>(AbstractFactory::getFactory("Is::TableFactory"));
+    auto asahi_2 = factory_2->createLink("朝日新聞", "http://www.asahi.com/");
+    auto yomiuri_2 = factory_2->createLink("読売新聞", "http://www.yomiuri.com/");
+    auto us_yahoo_2 = factory->createLink("Yahoo!", "http://www.yahoo.com/");
+    auto jp_yahoo_2 = factory->createLink("Yahoo!Japan", "http://www.yahoo.co.jp/");
+    auto excite_2 = factory->createLink("Excite", "http://www.excite.com/");
+    auto google_2 = factory->createLink("Google", "http://www.google.com/");
+
+    auto traynews_2 = factory_2->createTray("新聞");
+    traynews_2->add(std::static_pointer_cast<Item>(asahi_2));
+    traynews_2->add(std::static_pointer_cast<Item>(yomiuri_2));
+
+    auto trayyahoo_2 = factory_2->createTray("Yahoo!");
+    trayyahoo_2->add(std::static_pointer_cast<Item>(us_yahoo_2));
+    trayyahoo_2->add(std::static_pointer_cast<Item>(jp_yahoo_2));
+
+    auto traysearch_2 = factory_2->createTray("サーチエンジン");
+    traysearch_2->add(std::static_pointer_cast<Item>(trayyahoo_2));
+    traysearch_2->add(std::static_pointer_cast<Item>(excite_2));
+    traysearch_2->add(std::static_pointer_cast<Item>(google_2));
+
+    auto page_2 = factory_2->createPage("TablePage", "井上 真一");
+    page_2->add(std::static_pointer_cast<Item>(traynews_2));
+    page_2->add(std::static_pointer_cast<Item>(traysearch_2));
+    page_2->output();
 }
 
 
