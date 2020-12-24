@@ -1,6 +1,7 @@
 #include "iterator_pattern/bookshelf_iterator.hpp"
 #include "iterator_pattern/book.hpp"
 
+
 namespace Is
 {
     bool BookShelfIterator::hasNext()
