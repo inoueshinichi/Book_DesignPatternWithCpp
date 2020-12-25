@@ -39,7 +39,11 @@
 #include "abstract_factory_pattern/list_factory/listfactory.hpp"
 #include "abstract_factory_pattern/table_factory/table_factory.hpp"
 
-
+// Bridge Pattern
+#include "bridge_pattern/display.hpp"
+#include "bridge_pattern/countdisplay.hpp"
+#include "bridge_pattern/displayimpl.hpp"
+#include "bridge_pattern/stringdisplayimpl.hpp"
 
 void pattern_iterator()
 {
@@ -248,6 +252,31 @@ void pattern_abstract_factory()
 }
 
 
+void pattern_bridge()
+{
+    std::printf("==================== pattern_bridge() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    // 1
+    unique_ptr<StringDisplayImpl> d1_impl(new StringDisplayImpl("Hello, Japan."));
+    shared_ptr<Display> d1 = make_shared<Display>(move(d1_impl));
+
+    // 2
+    auto d2_impl = make_unique<StringDisplayImpl>("Hello, World.");
+    shared_ptr<Display> d2 = static_pointer_cast<Display>(make_shared<CountDisplay>(move(d2_impl)));
+
+    // 3
+    shared_ptr<CountDisplay> d3 = make_shared<CountDisplay>(move(make_unique<StringDisplayImpl>("Hello, Universe.")));
+
+    // 出力
+    d1->display();
+    d2->display();
+    d3->display();
+    d3->multiDisplay(3);
+}
+
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -258,6 +287,7 @@ int main(int, char**)
     pattern_prototype();
     pattern_builder();
     pattern_abstract_factory();
+    pattern_bridge();
 
     return 0;
 }
