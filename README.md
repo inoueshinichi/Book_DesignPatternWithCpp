@@ -1,6 +1,8 @@
 # DesignPattern
 Java言語で学ぶデザインパターン入門のC++実装</br>
 
+with GoogleTest and utf8cpp lib</br>
+
 1章 : Iterator</br>
 2章 : Adapter</br>
 3章 : Template Method</br>
