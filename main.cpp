@@ -259,7 +259,7 @@ void pattern_bridge()
     using namespace std;
 
     // 1
-    unique_ptr<StringDisplayImpl> d1_impl(new StringDisplayImpl("Hello, Japan."));
+    unique_ptr<StringDisplayImpl> d1_impl(new StringDisplayImpl("Hello, 日本."));
     shared_ptr<Display> d1 = make_shared<Display>(move(d1_impl));
 
     // 2
