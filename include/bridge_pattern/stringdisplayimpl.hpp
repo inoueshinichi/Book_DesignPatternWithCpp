@@ -1,6 +1,8 @@
 #ifndef BRIDGE_STRINGDISPLAY_IMPL_HPP
 #define BRIDGE_STRINGDISPLAY_IMPL_HPP
 
+#include "utf8.h"
+
 #include "displayimpl.hpp"
 
 #include <cstdio>
@@ -36,6 +38,9 @@ namespace Is
         {
             // 日本語のマルチバイト文字が入ると以下のルールは成立しない.
             // おとなしくUTF-8用のライブラリを導入すべし
+            auto width = utf8::distance(str.begin(), str.end());
+            std::cout << "width: " << width << std::endl;
+            // width_ = width;
             width_ = str_.length();
         }
 
