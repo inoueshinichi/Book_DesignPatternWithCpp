@@ -1,6 +1,7 @@
 #ifndef ADAPTER_PRINT_BANNER_HPP
 #define ADAPTER_PRINT_BANNER_HPP
 
+#include "../common.hpp"
 #include "print.hpp"
 #include "banner.hpp"
 
@@ -10,7 +11,7 @@ namespace Is
 {
     using std::string;
 
-    class PrintBanner : public Print
+    class DP_API PrintBanner : public Print
     {
         Banner banner_;
 

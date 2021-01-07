@@ -1,6 +1,8 @@
 #ifndef ITERATOR_BOOKSHELF_ITERATOR_HPP
 #define ITERATOR_BOOKSHELF_ITERATOR_HPP
 
+#include "../common.hpp"
+
 #include "iterator.hpp"
 #include "bookshelf.hpp"
 
@@ -10,7 +12,7 @@ namespace Is
 {
     using std::shared_ptr;
 
-    class BookShelfIterator : public Iterator
+    class DP_API BookShelfIterator : public Iterator
     {
         BookShelf* bookshelf_;
         int index_;

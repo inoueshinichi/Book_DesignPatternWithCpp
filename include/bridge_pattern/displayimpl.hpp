@@ -1,9 +1,11 @@
 #ifndef BRIDGE_DISPLAY_IMPL_HPP
 #define BRIDGE_DISPLAY_IMPL_HPP
 
+#include "../common.hpp"
+
 namespace Is
 {
-    class DisplayImpl
+    class DP_API DisplayImpl
     {
     public:
         virtual void rawOpen() = 0;

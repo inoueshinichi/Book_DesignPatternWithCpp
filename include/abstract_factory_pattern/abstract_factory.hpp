@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_FACTORY_HPP
 #define ABSTRACT_FACTORY_FACTORY_HPP
 
+#include "../common.hpp"
 #include "item.hpp"
 #include "link.hpp"
 #include "tray.hpp"
@@ -18,7 +19,7 @@ namespace Is
     using std::unordered_map;
     using std::shared_ptr;
 
-    class AbstractFactory
+    class DP_API AbstractFactory
     {
         using Registry_t = unordered_map<string, shared_ptr<AbstractFactory>>;
 

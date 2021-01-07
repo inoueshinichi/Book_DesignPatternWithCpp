@@ -1,6 +1,8 @@
 #ifndef PROTOTYPE_PRODUCT_HPP
 #define PROTOTYPE_PRODUCT_HPP
 
+#include "../common.hpp"
+
 #include <memory>
 #include <string>
 
@@ -10,7 +12,7 @@ namespace Is
     using std::make_shared;
     using std::string;
 
-    class Product
+    class DP_API Product
     {
     public:
         virtual ~Product() {}

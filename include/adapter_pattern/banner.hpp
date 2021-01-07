@@ -1,6 +1,8 @@
 #ifndef ADAPTER_BANNER_HPP
 #define ADAPTER_BANNER_HPP
 
+#include "../common.hpp"
+
 #include <string>
 #include <iostream>
 
@@ -8,7 +10,7 @@ namespace Is
 {
     using std::string;
 
-    class Banner
+    class DP_API Banner
     {
         string str_;
 

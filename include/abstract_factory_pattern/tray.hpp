@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_TRAY_HPP
 #define ABSTRACT_FACTORY_TRAY_HPP
 
+#include "../common.hpp"
 #include "item.hpp"
 
 #include <memory>
@@ -13,7 +14,7 @@ namespace Is
     using std::string;
     using std::list;
 
-    class Tray : public Item
+    class DP_API Tray : public Item
     {
     protected:
         list<shared_ptr<Item>> tray_;

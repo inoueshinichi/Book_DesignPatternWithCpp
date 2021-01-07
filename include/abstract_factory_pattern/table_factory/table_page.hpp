@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_TABLE_PAGE_HPP
 #define ABSTRACT_FACTORY_TABLE_PAGE_HPP
 
+#include "../../common.hpp"
 #include "../page.hpp"
 
 #include <string>
@@ -11,7 +12,7 @@ namespace Is
     using std::string;
     using std::stringstream;
 
-    class TablePage : public Page
+    class DP_API TablePage : public Page
     {
     public:
         TablePage(const string& title, const string& author) : Page(title, author) {}

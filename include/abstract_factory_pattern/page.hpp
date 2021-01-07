@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_PAGE_HPP
 #define ABSTRACT_FACTORY_PAGE_HPP
 
+#include "../common.hpp"
 #include "item.hpp"
 
 #include <string>
@@ -17,7 +18,7 @@ namespace Is
     using std::shared_ptr;
     using std::ofstream;
 
-    class Page
+    class DP_API Page
     {
     protected:
         string title_;

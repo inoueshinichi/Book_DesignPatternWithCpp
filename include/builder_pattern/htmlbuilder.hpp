@@ -1,6 +1,7 @@
 #ifndef BUILDER_HTMLBUILDER_HPP
 #define BUILDER_HTMLBUILDER_HPP
 
+#include "../common.hpp"
 #include "builder.hpp"
 
 #include <memory>
@@ -14,7 +15,7 @@ namespace Is
     using std::string;
     using std::ofstream;
 
-    class HTMLBuilder : public Builder
+    class DP_API HTMLBuilder : public Builder
     {
         string filename;
         ofstream ofs;

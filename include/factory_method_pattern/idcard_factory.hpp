@@ -1,6 +1,8 @@
 #ifndef FACTORY_METHOD_IDCARD_FACTORY_HPP
 #define FACTORY_METHOD_IDCARD_FACTORY_HPP
 
+
+#include "../common.hpp"
 #include "factory_method_pattern/factory.hpp"
 #include "factory_method_pattern/idcard.hpp"
 
@@ -14,7 +16,7 @@ namespace Is
     using std::string;
     using std::shared_ptr;
 
-    class IdCardFactory : public Factory
+    class DP_API IdCardFactory : public Factory
     {
         vector<shared_ptr<IdCard>> owners_;
     

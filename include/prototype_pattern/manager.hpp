@@ -1,6 +1,7 @@
 #ifndef PROTOTYPE_MANAGER_HPP
 #define PROTOTYPE_MANAGER_HPP
 
+#include "../common.hpp"
 #include "product.hpp"
 
 #include <map>
@@ -15,7 +16,7 @@ namespace Is
     using std::unordered_map;
     using std::string;
 
-    class Manager
+    class DP_API Manager
     {
         using showcase = unordered_map<string, shared_ptr<Product>>;
 

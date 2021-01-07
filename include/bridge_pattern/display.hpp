@@ -1,6 +1,7 @@
 #ifndef BRIDGE_DISPLAY_HPP
 #define BRIDGE_DISPLAY_HPP
 
+#include "../common.hpp"
 #include "displayimpl.hpp"
 
 #include <memory>
@@ -9,7 +10,7 @@ namespace Is
 {
     using std::unique_ptr;
 
-    class Display
+    class DP_API Display
     {
         unique_ptr<DisplayImpl> impl_;
 

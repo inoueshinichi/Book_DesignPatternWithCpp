@@ -1,11 +1,13 @@
 #ifndef TEMPLATE_METHOD_CHAR_DISPLAY_HPP
 #define TEMPLATE_METHOD_CHAR_DISPLAY_HPP
 
+#include "../common.hpp"
+
 #include "abstract_display.hpp"
 
 namespace Is
 {
-    class CharDisplay : public AbstractDisplay
+    class DP_API CharDisplay : public AbstractDisplay
     {
         char ch_;
     

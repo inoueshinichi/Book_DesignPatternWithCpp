@@ -1,6 +1,7 @@
 #ifndef BUILDER_TEXTBUILDER_HPP
 #define BUILDER_TEXTBUILDER_HPP
 
+#include "../common.hpp"
 #include "builder.hpp"
 
 #include <string>
@@ -13,7 +14,7 @@ namespace Is
     using std::string;
     using std::stringstream;
 
-    class TextBuilder : public Builder
+    class DP_API TextBuilder : public Builder
     {
         stringstream ss;
 

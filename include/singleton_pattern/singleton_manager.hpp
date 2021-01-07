@@ -1,6 +1,8 @@
 #ifndef SINGLETON_SINGLETON_MANAGER_HPP
 #define SINGLETON_SINGLETON_MANAGER_HPP
 
+#include "../common.hpp"
+
 // #include <thread>
 #include <mutex>
 #include <memory>
@@ -15,7 +17,7 @@ namespace Is
     using std::function;
     using std::recursive_mutex;
 
-    class SingletonManager
+    class DP_API SingletonManager
     {
         // 変数
         static SingletonManager* self_;

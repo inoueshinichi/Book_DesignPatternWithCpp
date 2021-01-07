@@ -1,5 +1,8 @@
 #ifndef BUILDER_BUILDER_HPP
 #define BUILDER_BUILDER_HPP
+
+#include "../common.hpp"
+
 #include <string>
 #include <vector>
 
@@ -8,7 +11,7 @@ namespace Is
     using std::string;
     using std::vector;
 
-    class Builder
+    class DP_API Builder
     {
     public:
         virtual ~Builder() {}

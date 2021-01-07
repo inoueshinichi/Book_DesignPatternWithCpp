@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_LIST_FACTORY_HPP
 #define ABSTRACT_FACTORY_LIST_FACTORY_HPP
 
+#include "../../common.hpp"
 #include "listlink.hpp"
 #include "listtray.hpp"
 #include "listpage.hpp"
@@ -18,7 +19,7 @@ namespace Is
     using std::shared_ptr;
     using std::make_shared;
 
-    class ListFactory : public AbstractFactory
+    class DP_API ListFactory : public AbstractFactory
     {
     public:
         virtual shared_ptr<Link> createLink(const string& caption, const string& url) override

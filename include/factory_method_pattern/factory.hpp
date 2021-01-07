@@ -1,6 +1,8 @@
 #ifndef FACTORY_METHOD_FACTORY_HPP
 #define FACTORY_METHOD_FACTORY_HPP
 
+#include "../common.hpp"
+
 #include <memory>
 #include <string>
 
@@ -11,7 +13,7 @@ namespace Is
 
     class ProductInFactory;
 
-    class Factory
+    class DP_API Factory
     {
     public:
         virtual ~Factory() {}

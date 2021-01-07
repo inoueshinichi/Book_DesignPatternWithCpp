@@ -1,6 +1,7 @@
 #ifndef PROTOTYPE_MESSAGEBOX_HPP
 #define PROTOTYPE_MESSAGEBOX_HPP
 
+#include "../common.hpp"
 #include "product.hpp"
 
 #include <string>
@@ -14,7 +15,7 @@ namespace Is
     using std::shared_ptr;
     using std::make_shared;
 
-    class MessageBox : public Product
+    class DP_API MessageBox : public Product
     {
         string decochar;
 

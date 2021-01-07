@@ -1,13 +1,15 @@
 #ifndef ITERATOR_BOOL_HPP
 #define ITERATOR_BOOL_HPP
 
+#include "../common.hpp"
+
 #include <string>
 
 namespace Is
 {
     using std::string;
 
-    class Book
+    class DP_API Book
     {
         string name_;
 

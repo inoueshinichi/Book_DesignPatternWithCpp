@@ -1,6 +1,7 @@
 #ifndef TEMPLATE_METHOD_STRING_DISPLAY_HPP
 #define TEMPLATE_METHOD_STRING_DISPLAY_HPP
 
+#include "../common.hpp"
 #include "abstract_display.hpp"
 
 #include <string>
@@ -9,7 +10,7 @@ namespace Is
 {
     using std::string;
 
-    class StringDisplay : public AbstractDisplay
+    class DP_API StringDisplay : public AbstractDisplay
     {
         string str_;
         int width_;

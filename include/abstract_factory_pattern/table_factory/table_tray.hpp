@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_TABLE_TRAY_HPP
 #define ABSTRACT_FACTORY_TABLE_TRAY_HPP
 
+#include "../../common.hpp"
 #include "../tray.hpp"
 
 #include <string>
@@ -13,7 +14,7 @@ namespace Is
     using std::stringstream;
     using std::shared_ptr;
 
-    class TableTray : public Tray
+    class DP_API TableTray : public Tray
     {
     public:
         TableTray(const string& caption) : Tray(caption) {}

@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_LINK_HPP
 #define ABSTRACT_FACTORY_LINK_HPP
 
+#include "../common.hpp"
 #include "item.hpp"
 
 #include <string>
@@ -9,7 +10,7 @@ namespace Is
 {
     using std::string;
 
-    class Link : public Item
+    class DP_API Link : public Item
     {
     protected:
         string url_;

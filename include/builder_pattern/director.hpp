@@ -1,6 +1,7 @@
 #ifndef DIRECTOR_HPP
 #define DIRECTOR_HPP
 
+#include "../common.hpp"
 #include "builder.hpp"
 
 #include <memory>
@@ -9,7 +10,7 @@ namespace Is
 {
     using std::shared_ptr;
 
-    class Director
+    class DP_API Director
     {
         shared_ptr<Builder> builder_;
 

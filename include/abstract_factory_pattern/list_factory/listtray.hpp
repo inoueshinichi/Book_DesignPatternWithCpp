@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_LIST_TRAY_HPP
 #define ABSTRACT_FACTORY_LIST_TRAY_HPP
 
+#include "../../common.hpp"
 #include "../tray.hpp"
 
 #include <string>
@@ -12,7 +13,7 @@ namespace Is
     using std::string;
     using std::shared_ptr;
 
-    class ListTray : public Tray
+    class DP_API ListTray : public Tray
     {
     public:
         ListTray(const string& caption) : Tray(caption) {}

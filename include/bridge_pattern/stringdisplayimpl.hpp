@@ -3,6 +3,7 @@
 
 #include "utf8.h"
 
+#include "../common.hpp"
 #include "displayimpl.hpp"
 
 #include <cstdio>
@@ -15,7 +16,7 @@ namespace Is
     using std::string;
     using std::stringstream;
 
-    class StringDisplayImpl : public DisplayImpl
+    class DP_API StringDisplayImpl : public DisplayImpl
     {
         string str_;
         int width_;

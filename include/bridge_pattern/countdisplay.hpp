@@ -1,6 +1,7 @@
 #ifndef BRIDGE_COUNT_DISPLAY_HPP
 #define BRIDGE_COUNT_DISPLAY_HPP
 
+#include "../common.hpp"
 #include "display.hpp"
 
 #include <memory>
@@ -9,7 +10,7 @@ namespace Is
 {
     using std::unique_ptr;
 
-    class CountDisplay : public Display
+    class DP_API CountDisplay : public Display
     {
     public:
         CountDisplay(unique_ptr<DisplayImpl>&& impl) : Display(std::move(impl)) {}

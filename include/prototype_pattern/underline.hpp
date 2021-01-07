@@ -1,6 +1,7 @@
 #ifndef __PROTOTYPE_UNDERLINE_HPP__
 #define __PROTOTYPE_UNDERLINE_HPP__
 
+#include "../common.hpp"
 #include "product.hpp"
 
 #include <memory>
@@ -13,7 +14,7 @@ namespace Is
     using std::shared_ptr;
     using std::make_shared;
 
-    class UnderlinePen : public Product
+    class DP_API UnderlinePen : public Product
     {
         string ulchar;
 

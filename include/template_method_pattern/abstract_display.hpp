@@ -1,9 +1,11 @@
 #ifndef TEMPLATE_METHOD_ABSTRACT_DISPLAY_HPP
 #define TEMPLATE_METHOD_ABSTRACT_DISPLAY_HPP
 
+#include "../common.hpp"
+
 namespace Is
 {
-    class AbstractDisplay
+    class DP_API AbstractDisplay
     {
     public:
         AbstractDisplay() {}

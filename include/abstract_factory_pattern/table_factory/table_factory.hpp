@@ -1,6 +1,7 @@
 #ifndef ABSTRACT_FACTORY_TABLE_FACTORY_HPP
 #define ABSTRACT_FACTORY_TABLE_FACTORY_HPP
 
+#include "../../common.hpp"
 #include "table_link.hpp"
 #include "table_tray.hpp"
 #include "table_page.hpp"
@@ -18,7 +19,7 @@ namespace Is
     using std::shared_ptr;
     using std::make_shared;
 
-    class TableFactory : public AbstractFactory
+    class DP_API TableFactory : public AbstractFactory
     {
     public:
         virtual shared_ptr<Link> createLink(const string& caption, const string& url) override

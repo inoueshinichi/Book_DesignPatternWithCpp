@@ -1,13 +1,15 @@
 #ifndef ABSTRACT_FACTORY_ITEM_HPP
 #define ABSTRACT_FACTORY_ITEM_HPP
 
+#include "../common.hpp"
+
 #include <string>
 
 namespace Is
 {
     using std::string;
     
-    class Item
+    class DP_API Item
     {
     protected:
         string caption_;

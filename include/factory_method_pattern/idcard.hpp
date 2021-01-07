@@ -1,6 +1,7 @@
 #ifndef FACTORY_METHOD_IDCARD_HPP
 #define FACTORY_METHOD_IDCARD_HPP
 
+#include "../common.hpp"
 #include "factory_method_pattern/product.hpp"
 
 #include <memory>
@@ -11,7 +12,7 @@ namespace Is
     using std::shared_ptr;
     using std::string;
 
-    class IdCard : public ProductInFactory
+    class DP_API IdCard : public ProductInFactory
     {
         string owner_;
 

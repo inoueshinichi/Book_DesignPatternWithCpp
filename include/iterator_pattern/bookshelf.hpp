@@ -1,6 +1,7 @@
 #ifndef ITERATOR_BOOKSHELF_HPP
 #define ITERATOR_BOOKSHELF_HPP
 
+#include "../common.hpp"
 #include "aggregate.hpp"
 #include "book.hpp"
 
@@ -12,7 +13,7 @@ namespace Is
     using std::vector;
     using std::shared_ptr;
 
-    class BookShelf : public Aggregate
+    class DP_API BookShelf : public Aggregate
     {
         vector<Book> books_;
 
