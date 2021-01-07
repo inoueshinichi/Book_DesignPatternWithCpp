@@ -31,7 +31,7 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS_DEBUG "/Ob0 /Od /MDd /Zi /RTC1") # /MDd or /Od が指定されている場合、#include <windows>内部で_DEBUGマクロが定義される
     set(CMAKE_CXX_FLAGS_RELEASE "/Ob2 /O2 /MD /DNDEBUG") # /DNDEBUGマクロはstatic_assert()で利用する
     set(CMAKE_CXX_FLAGS_MINSIZEREL "/O1 /MD /DNDEBUG")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/Od /MDd /Zi /RTC1 /D_DEBUG")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/Od /MDd /Zi /RTC1")
 
     if(BUILD_OPENMP)
         set(CMAKE_CXX_FFAGS "${CMAKE_CXX_FFAGS} /openmp")
@@ -39,7 +39,6 @@ if(MSVC)
 
     # ソースコードでUTF-8を使う(MSVC++)
     add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/utf-8>)
-
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
     add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>)
 
