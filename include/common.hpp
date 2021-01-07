@@ -3,7 +3,7 @@
 
 #if defined(_MSC_VER)
 
-#   if defined(DP_DLL_EXPORT)
+#   if defined(design_pattern_EXPORTS) || defined(design_pattern_dbg_EXPORTS)
 #       define DP_API __declspec(dllexport)
 #   else
 #       define DP_API __declspac(dllimport)
