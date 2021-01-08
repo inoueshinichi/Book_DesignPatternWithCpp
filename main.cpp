@@ -45,6 +45,17 @@
 #include "bridge_pattern/displayimpl.hpp"
 #include "bridge_pattern/stringdisplayimpl.hpp"
 
+// Strategy Pattern
+#include "strategy_pattern/hand.hpp"
+#include "strategy_pattern/player.hpp"
+#include "strategy_pattern/strategy.hpp"
+#include "strategy_pattern/winningstrategy.hpp"
+#include "strategy_pattern/probstrategy.hpp"
+#include <random> // std::random_deviceエンジン
+
+// Composite Pattern
+
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -277,6 +288,60 @@ void pattern_bridge()
 }
 
 
+void pattern_strategy()
+{
+    std::printf("==================== pattern_strategy() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    random_device rd; // 完全ランダムエンジン
+    int seed1 = (int)rd(); // rd()は符号なし32bit整数を返す
+    int seed2 = (int)rd();
+    cout << "seed1: " << seed1 << " for Taro, seed2: " << seed2 << " for Hana" << endl;
+
+    Player player1("Taro", move(make_unique<WinningStrategy>(seed1)));
+    Player player2("Hana", move(make_unique<ProbStrategy>(seed2)));
+
+    // 100回のじゃんけんゲーム
+    for (int game_index = 0; game_index < 100; ++game_index)
+    {
+        Hand nextHand1 = player1.nextHand();
+        Hand nextHand2 = player2.nextHand();
+
+        if (nextHand1.isStrongerThan(nextHand2))
+        {
+            cout << "Winner: " << "player1" << endl;
+            player1.win();
+            player2.lose();
+        }
+        else if (nextHand2.isStrongerThan(nextHand1))
+        {
+            cout << "Winner: " << "player2" << endl;
+            player1.lose();
+            player2.win();
+        }
+        else
+        {
+            cout << "Even..." << endl;
+            player1.even();
+            player2.even();
+        }
+    }
+
+    cout << "Total result: " << endl;
+    cout << player1.toString() << endl;
+    cout << player2.toString() << endl;
+}
+
+void pattern_composite()
+{
+    std::printf("==================== pattern_composite() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+
+}
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -288,6 +353,8 @@ int main(int, char**)
     pattern_builder();
     pattern_abstract_factory();
     pattern_bridge();
+    pattern_strategy();
+    pattern_composite();
 
     return 0;
 }
