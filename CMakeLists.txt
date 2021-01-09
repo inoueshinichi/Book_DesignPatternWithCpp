@@ -17,8 +17,8 @@ set(BUILD_SHARED_LIBS ON)
 # 全ターゲットに影響を与えるオプション
 ###############################################################################
 message(STATUS "========== [START] C++ All Target Options ==========")
-# C++17
-set(CMAKE_CXX_STANDARD 17)
+# C++20
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 message(STATUS "CMAKE_CXX_STANDARD: ${CMAKE_CXX_STANDARD}")
 
