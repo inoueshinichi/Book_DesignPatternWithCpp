@@ -54,7 +54,10 @@
 #include <random> // std::random_deviceエンジン
 
 // Composite Pattern
-
+#include "composite_pattern/entry.hpp"
+#include "composite_pattern/file.hpp"
+#include "composite_pattern/directory.hpp"
+#include "composite_pattern/exception.hpp"
 
 void pattern_iterator()
 {
@@ -339,7 +342,40 @@ void pattern_composite()
     using namespace Is;
     using namespace std;
 
+    try
+    {
+        cout << "Making root entries..." << endl;
+        auto root_dir = make_shared<Directory>("root");
+        auto bin_dir = make_shared<Directory>("bin");
+        auto tmp_dir = make_shared<Directory>("tmp");
+        auto usr_dir = make_shared<Directory>("usr");
+        root_dir->add(bin_dir);
+        root_dir->add(tmp_dir);
+        root_dir->add(usr_dir);
+        bin_dir->add(make_shared<File>("vi", 10000));
+        bin_dir->add(make_shared<File>("latex", 20000));
+        root_dir->printList();
 
+        cout << endl;
+        cout << "Making user entries..." << endl;
+        auto yuki = make_shared<Directory>("yuki");
+        auto hanako = make_shared<Directory>("hanako");
+        auto tomura = make_shared<Directory>("tomura");
+        usr_dir->add(yuki);
+        usr_dir->add(hanako);
+        usr_dir->add(tomura);
+        yuki->add(make_shared<File>("diary.html", 100));
+        yuki->add(make_shared<File>("composite.cpp", 200));
+        hanako->add(make_shared<File>("memo.txt", 300));
+        tomura->add(make_shared<File>("game.doc", 400));
+        tomura->add(make_shared<File>("junk.mail", 500));
+        root_dir->printList();
+    }
+    catch(Exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
 }
 
 int main(int, char**) 
