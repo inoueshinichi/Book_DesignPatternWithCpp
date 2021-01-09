@@ -38,7 +38,7 @@ namespace Is
 
         virtual ~ProbStrategy() {}
 
-        virtual Hand nextHand() 
+        virtual Hand nextHand() override
         {
             int range_max = getSum(currentHandValue_);
             std::uniform_int_distribution<int> dist(0, range_max);
@@ -63,7 +63,7 @@ namespace Is
             return Hand::getHand(hand_value); // 右辺値
         }
 
-        virtual void study(bool win)
+        virtual void study(bool win) override
         {
             if (win)
             {

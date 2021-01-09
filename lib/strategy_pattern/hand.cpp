@@ -11,8 +11,8 @@ namespace Is
     };
 
     const string Hand::name[] = {
-        u8"グー"s,
-        u8"チョキ"s,
-        u8"パー"s
+        "グー"s,
+        "チョキ"s,
+        "パー"s
     };
 }

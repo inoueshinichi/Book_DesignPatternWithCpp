@@ -24,7 +24,7 @@ namespace Is
         virtual ~WinningStrategy() {}
 
 
-        virtual Hand nextHand()
+        virtual Hand nextHand() override
         {
             if (!won_)
             {
@@ -35,7 +35,7 @@ namespace Is
             return prevHand_; // 勝っていたらなら、前回の手を出す(愚策)
         }
 
-        virtual void study(bool win)
+        virtual void study(bool win) override
         {
             won_ = win;
         }
