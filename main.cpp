@@ -59,6 +59,14 @@
 #include "composite_pattern/directory.hpp"
 #include "composite_pattern/exception.hpp"
 
+// Decorator Pattern
+#include "decorator_pattern/display.hpp"
+#include "decorator_pattern/stringdisplay.hpp"
+#include "decorator_pattern/border.hpp"
+#include "decorator_pattern/sideborder.hpp"
+#include "decorator_pattern/fullborder.hpp"
+
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -378,6 +386,32 @@ void pattern_composite()
     
 }
 
+void pattern_decorator()
+{
+    std::printf("==================== pattern_decorator() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    auto b1 = static_pointer_cast<DecoBaseDisplay>(make_shared<DecoStringDisplay>("Hello, World."));
+    shared_ptr<DecoBaseDisplay> b2 = make_shared<SideBorder>(b1, '#');
+    shared_ptr<DecoBaseDisplay> b3 = make_shared<FullBorder>(b2);
+    b1->show();
+    b2->show();
+    b3->show();
+
+    shared_ptr<DecoBaseDisplay> b4 = make_shared<SideBorder>(
+        make_shared<FullBorder>(
+            make_shared<SideBorder>(
+                make_shared<FullBorder>(
+                    make_shared<DecoStringDisplay>("Hello C++!!!")
+                ), '*'
+            )
+        ), '/'
+    );
+
+    b4->show();
+}
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -391,6 +425,7 @@ int main(int, char**)
     pattern_bridge();
     pattern_strategy();
     pattern_composite();
+    pattern_decorator();
 
     return 0;
 }
