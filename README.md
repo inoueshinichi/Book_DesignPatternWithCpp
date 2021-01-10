@@ -14,4 +14,5 @@ with GoogleTest and utf8cpp lib</br>
 9章 : Bridge</br>
 10章: Strategy</br>
 11章: Composite</br>
-
+12章: Decorator</br>
+13章: Visitor</br>
