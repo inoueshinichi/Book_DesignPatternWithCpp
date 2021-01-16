@@ -57,7 +57,7 @@
 #include "composite_pattern/entry.hpp"
 #include "composite_pattern/file.hpp"
 #include "composite_pattern/directory.hpp"
-#include "composite_pattern/exception.hpp"
+#include "exception.hpp"
 
 // Decorator Pattern
 #include "decorator_pattern/display.hpp"
@@ -66,6 +66,11 @@
 #include "decorator_pattern/sideborder.hpp"
 #include "decorator_pattern/fullborder.hpp"
 
+// Visitor Pattern
+#include "visitor_pattern/visitor.hpp"
+#include "visitor_pattern/list_visitor.hpp"
+#include "visitor_pattern/vi_file.hpp"
+#include "visitor_pattern/vi_directory.hpp"
 
 void pattern_iterator()
 {
@@ -120,9 +125,9 @@ void pattern_factory_method()
     std::printf("==================== pattern_factory_method() ====================\n");
     using namespace Is;
     auto factory = std::static_pointer_cast<Factory>(std::make_shared<IdCardFactory>());
-    auto card1 = factory->create("井上真一");
-    auto card2 = factory->create("井上美里");
-    auto card3 = factory->create("井上早織");
+    auto card1 = factory->create("Inoue A");
+    auto card2 = factory->create("Inoue B");
+    auto card3 = factory->create("Inoue C");
     card1->use();
     card2->use();
     card3->use();
@@ -236,7 +241,7 @@ void pattern_abstract_factory()
     traysearch->add(std::static_pointer_cast<Item>(excite));
     traysearch->add(std::static_pointer_cast<Item>(google));
 
-    auto page = factory->createPage("LinkPage", "井上 真一");
+    auto page = factory->createPage("LinkPage", "Inoue Shinichi");
     page->add(std::static_pointer_cast<Item>(traynews));
     page->add(std::static_pointer_cast<Item>(traysearch));
     page->output();
@@ -267,7 +272,7 @@ void pattern_abstract_factory()
     traysearch_2->add(std::static_pointer_cast<Item>(excite_2));
     traysearch_2->add(std::static_pointer_cast<Item>(google_2));
 
-    auto page_2 = factory_2->createPage("TablePage", "井上 真一");
+    auto page_2 = factory_2->createPage("TablePage", "Inoue Shinichi");
     page_2->add(std::static_pointer_cast<Item>(traynews_2));
     page_2->add(std::static_pointer_cast<Item>(traysearch_2));
     page_2->output();
@@ -412,6 +417,47 @@ void pattern_decorator()
     b4->show();
 }
 
+void pattern_visitor()
+{
+    std::printf("==================== pattern_visitor() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    try
+    {
+        cout << "Making root entries..." << endl;
+        auto root_dir = ViDirectory::create("root");
+        auto bin_dir = ViDirectory::create("bin");
+        auto tmp_dir = ViDirectory::create("tmp");
+        auto usr_dir = ViDirectory::create("usr");
+        root_dir->add(bin_dir);
+        root_dir->add(tmp_dir);
+        root_dir->add(usr_dir);
+        bin_dir->add(ViFile::create("vi", 10000));
+        bin_dir->add(ViFile::create("latex", 20000));
+        root_dir->accept(ListVisitor::create());
+
+        cout << endl;
+        cout << "Making user entries..." << endl;
+        auto yuki = ViDirectory::create("yuki");
+        auto hanako = ViDirectory::create("hanako");
+        auto tomura = ViDirectory::create("tomura");
+        usr_dir->add(yuki);
+        usr_dir->add(hanako);
+        usr_dir->add(tomura);
+        yuki->add(ViFile::create("diary.html", 100));
+        yuki->add(ViFile::create("Composite.cpp", 200));
+        hanako->add(ViFile::create("memo.tex", 300));
+        tomura->add(ViFile::create("game.doc", 400));
+        tomura->add(ViFile::create("junk.mail", 500));
+        root_dir->accept(ListVisitor::create());
+    }
+    catch(Exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+}
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -426,6 +472,7 @@ int main(int, char**)
     pattern_strategy();
     pattern_composite();
     pattern_decorator();
+    pattern_visitor();
 
     return 0;
 }
