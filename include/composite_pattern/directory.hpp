@@ -18,10 +18,10 @@ namespace Is
 
     class DP_API Directory : public Entry
     {
+    protected:
         string name_;
         vector<shared_ptr<Entry>> directory_;
 
-    protected:
         virtual void printList_impl(const string& prefix) override
         {
             stringstream ss;

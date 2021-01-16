@@ -12,10 +12,10 @@ namespace Is
 
     class DP_API File : public Entry
     {
+    protected:
         string name_;
         int size_;
-
-    protected:
+        
         virtual void printList_impl(const string& prefix)
         {
             stringstream ss;
