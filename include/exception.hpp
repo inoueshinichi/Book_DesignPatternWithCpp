@@ -1,5 +1,5 @@
-#ifndef COMPOSITE_FILE_EXCEPTION_HPP
-#define COMPOSITE_FILE_EXCEPTION_HPP
+#ifndef EXCEPTION_HPP
+#define EXCEPTION_HPP
 
 #if defined(_MSC_VER)
 #   define __func__ __FUNCTION__
