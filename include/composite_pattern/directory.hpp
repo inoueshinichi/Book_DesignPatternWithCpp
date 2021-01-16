@@ -35,12 +35,7 @@ namespace Is
             }
         }
 
-    public:
-        Directory(const string& name) : name_(name) 
-        {}
-        virtual ~Directory() {}
-
-        virtual string getName_impl() override
+         virtual string getName_impl() override
         {
             return name_;
         }
@@ -56,9 +51,24 @@ namespace Is
             return size;
         }
 
+        virtual string getClassName_impl() override
+        {
+            return "Directory";
+        }
+
+    public:
+        Directory(const string& name) : name_(name) 
+        {}
+        virtual ~Directory() {}
+
         virtual void add(shared_ptr<Entry> entry) override
         {
             directory_.emplace_back(entry);
+        }
+
+        virtual vector<shared_ptr<Entry>>& entries() override
+        {
+            return directory_; // TODO: 非constな参照を一時オブジェクト(return std::begin(directory_))で初期化できない.(※左辺値である必要がある)
         }
     };
 }

@@ -2,7 +2,7 @@
 #define COMPOSITE_ENTRY_HPP
 
 #include "../common.hpp"
-#include "exception.hpp"
+#include "../exception.hpp"
 
 #include <string>
 #include <sstream>
@@ -18,17 +18,22 @@ namespace Is
     {
     protected:
         virtual void printList_impl(const string& prefix) = 0;
+        virtual string getName_impl() = 0;
+        virtual int getSize_impl() = 0;
+        virtual string getClassName_impl() = 0;
 
     public:
         Entry() {}
         virtual ~Entry() {}
 
-        virtual string getName_impl() = 0;
-        virtual int getSize_impl() = 0;
-        
         virtual void add(shared_ptr<Entry> entry) //throw(Exception)
         {
             IS_ERROR(error_code::not_implemented, "Entry class can NOT implement add(unique_ptr<Entry>&& entry).");
+        }
+
+        virtual vector<shared_ptr<Entry>>& entries()
+        {
+            IS_ERROR(error_code::not_implemented, "Element class can NOT implement iterator().");
         }
 
         void printList(const string& prefix = "")
@@ -51,6 +56,11 @@ namespace Is
             stringstream ss;
             ss << getName() << " (" << getSize() << ")";
             return ss.str();
+        }
+
+        string getClassName()
+        {
+            return this->getClassName_impl();
         }
     };
 }
