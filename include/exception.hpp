@@ -5,7 +5,7 @@
 #   define __func__ __FUNCTION__
 #endif
 
-#include "../common.hpp"
+#include "common.hpp"
 
 #include <cstdio>  // std::snprintf()
 #include <cstdlib> // std::abort()
