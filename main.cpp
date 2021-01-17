@@ -72,6 +72,14 @@
 #include "visitor_pattern/vi_file.hpp"
 #include "visitor_pattern/vi_directory.hpp"
 
+// Chain of Responsibility
+#include "chain_of_responsibility_pattern/trouble.hpp"
+#include "chain_of_responsibility_pattern/support.hpp"
+#include "chain_of_responsibility_pattern/no_support.hpp"
+#include "chain_of_responsibility_pattern/limit_support.hpp"
+#include "chain_of_responsibility_pattern/odd_support.hpp"
+#include "chain_of_responsibility_pattern/special_support.hpp"
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -458,6 +466,29 @@ void pattern_visitor()
     }
 }
 
+void pattern_chain_of_responsibility()
+{
+    std::printf("==================== pattern_chain_of_responsibility() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    auto alice = make_shared<NoSupport>("Alice");
+    auto bob = make_shared<LimitSupport>("Bob", 100);
+    auto charlie = make_shared<SpecialSupport>("charlie", 429);
+    auto diana = make_shared<LimitSupport>("Diana", 200);
+    auto elmo = make_shared<OddSupport>("Elmo");
+    auto fred = make_shared<LimitSupport>("Fred", 300);
+
+    // 連鎖の形成
+    alice->setNext(bob)->setNext(charlie)->setNext(diana)->setNext(elmo)->setNext(fred);
+
+    // 様々なトラブルが発生
+    for (int i = 0; i < 500; i += 33)
+    {
+        alice->support(make_shared<Trouble>(i));
+    }
+}
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -473,6 +504,7 @@ int main(int, char**)
     pattern_composite();
     pattern_decorator();
     pattern_visitor();
+    pattern_chain_of_responsibility();
 
     return 0;
 }
