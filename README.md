@@ -16,3 +16,5 @@ with GoogleTest and utf8cpp lib</br>
 11章: Composite</br>
 12章: Decorator</br>
 13章: Visitor</br>
+14章: Chain of Responsibility</br>
+
