@@ -41,6 +41,7 @@ if(MSVC)
     add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/utf-8>)
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
     add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>)
+    string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
 
 elseif(APPLE)
     message(STATUS "Compiler: Clang in macOS")    
