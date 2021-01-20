@@ -1,6 +1,10 @@
 # Directory
-build/
-.vscode/
+/build
+/.vscode
+/third-party/*.zip
+/third-party/utfcpp-3.1.2
+/third-party/json-develop
+
 
 # File
 .bmp
