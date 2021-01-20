@@ -10,8 +10,12 @@ message("CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PA
 
 # Switching
 option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
-option(BUILD_CPP_TEST "Building test" ON)
+option(BUILD_CPP_TEST "Building test" OFF)
 set(BUILD_SHARED_LIBS ON)
+
+# if(BUILD_CPP_TEST)
+#     set(BUILD_TESTING OFF)
+# endif()
 
 ###############################################################################
 # 全ターゲットに影響を与えるオプション
@@ -122,8 +126,10 @@ message(STATUS "========== [END] C++ All Target Options ==========")
 message(STATUS "========== [START] C++ Build Core ==========")
 
 # Third Party
-message(STATUS "Build third party libraries.")
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third-party/utfcpp-3.1.2) # utf8::cpp
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third-party)
+# message(STATUS "Build third party libraries.")
+# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third-party/utfcpp-3.1.2) # utf8::cpp
+
 
 list(APPEND DESIGN_PATTERN_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 message(STATUS "Include dir: ${DESIGN_PATTERN_INCLUDE_DIR}")
