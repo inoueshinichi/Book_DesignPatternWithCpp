@@ -1,4 +1,6 @@
 #include <iostream>
+#include <fstream>
+#include <iomanip>
 
 // Iterator Pattern
 #include "iterator_pattern/book.hpp"
@@ -72,13 +74,17 @@
 #include "visitor_pattern/vi_file.hpp"
 #include "visitor_pattern/vi_directory.hpp"
 
-// Chain of Responsibility
+// Chain of Responsibility Pattern
 #include "chain_of_responsibility_pattern/trouble.hpp"
 #include "chain_of_responsibility_pattern/support.hpp"
 #include "chain_of_responsibility_pattern/no_support.hpp"
 #include "chain_of_responsibility_pattern/limit_support.hpp"
 #include "chain_of_responsibility_pattern/odd_support.hpp"
 #include "chain_of_responsibility_pattern/special_support.hpp"
+
+// Facade Pattern 
+#include <nlohmann/json.hpp> // third_party
+#include "facade_pattern/pagemaker.hpp"
 
 void pattern_iterator()
 {
@@ -489,6 +495,28 @@ void pattern_chain_of_responsibility()
     }
 }
 
+void pattern_facade()
+{
+    std::printf("==================== pattern_facade() ====================\n");
+    using namespace Is;
+    using namespace std;
+    using json = nlohmann::json;
+
+    // JSONフォーマットの設定データ作成
+    json json_mail_data;
+    json_mail_data["hyuki@hyuki.com"] = "Hiroshi Yuki";
+    json_mail_data["hanako@hyuki.com"] = "Hanako Sato";
+    json_mail_data["tomura@hkyuki.com"] = "Tomura";
+    json_mail_data["mamoru@hkyuki.com"] = "Mamoru Takahashi";
+
+    // ファイルに書き出し(シリアライズ)
+    ofstream ofs("maildata.json");
+    ofs << std::setw(4) << json_mail_data << std::endl;
+
+    // Htmlファイルの作成
+    PageMaker::makeWelcomPage("hyuki@hyuki.com", "welcom.html");
+}
+
 int main(int, char**) 
 {  
     pattern_iterator();
@@ -505,6 +533,7 @@ int main(int, char**)
     pattern_decorator();
     pattern_visitor();
     pattern_chain_of_responsibility();
+    pattern_facade();
 
     return 0;
 }
