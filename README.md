@@ -1,7 +1,10 @@
 # DesignPattern
 Java言語で学ぶデザインパターン入門のC++実装</br>
 
-with GoogleTest and utf8cpp lib</br>
+third_party libraries</br>
+[1] GoogleTest</br>
+[2] utfcpp</br>
+[3] nlohmann-json</br>
 
 1章 : Iterator</br>
 2章 : Adapter</br>
