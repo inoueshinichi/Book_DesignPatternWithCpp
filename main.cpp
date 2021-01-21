@@ -519,6 +519,8 @@ void pattern_facade()
 
 int main(int, char**) 
 {  
+    std::cout << "__cplusplus: " << __cplusplus << std::endl;
+
     pattern_iterator();
     pattern_adapter();
     pattern_template_method();
