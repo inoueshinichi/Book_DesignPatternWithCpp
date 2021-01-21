@@ -5,6 +5,7 @@ third_party libraries</br>
 [1] GoogleTest</br>
 [2] utfcpp</br>
 [3] nlohmann-json</br>
+[4] Qt</br>
 
 1章 : Iterator</br>
 2章 : Adapter</br>
