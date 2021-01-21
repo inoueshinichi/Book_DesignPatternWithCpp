@@ -40,10 +40,12 @@ endfunction()
 ###############################################################################
 
 # utfcpp(for utf-8)
+message(STATUS "Download and Extract library: utfcpp-3.1.2")
 download_and_extract_library(utfcpp-3.1.2 .zip https://github.com/nemtrif/utfcpp/archive/v3.1.2.zip)
 add_subdirectory(utfcpp-3.1.2)
 
 # nlohmann-json(develop版はc++20対応していると思われる)
+message(STATUS "Download and Extract library: nlohmann_json")
 download_and_extract_library(json-develop .zip https://github.com/nlohmann/json/archive/develop.zip)
 add_subdirectory(json-develop)
 
