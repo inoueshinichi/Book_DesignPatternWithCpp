@@ -13,9 +13,9 @@ option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
 option(BUILD_CPP_TEST "Building test" OFF)
 set(BUILD_SHARED_LIBS ON)
 
-# if(BUILD_CPP_TEST)
-#     set(BUILD_TESTING OFF)
-# endif()
+if(BUILD_CPP_TEST)
+    set(BUILD_TESTING OFF)
+endif()
 
 ###############################################################################
 # 全ターゲットに影響を与えるオプション
@@ -38,14 +38,17 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/Od /MDd /Zi /RTC1")
 
     if(BUILD_OPENMP)
-        set(CMAKE_CXX_FFAGS "${CMAKE_CXX_FFAGS} /openmp")
+        # string(APPEND CMAKE_CXX_FLAGS " /openmp")
+        add_compile_options("$<$<C_COMPILER_ID:MSVC>:/openmp>")
+        add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/openmp>")
     endif()
 
-    # ソースコードでUTF-8を使う(MSVC++)
-    add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/utf-8>)
+    # ソースコードでUTF-8を使う(MSVC)
+    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
-    add_compile_options($<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>)
-    string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>")
+    # string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
 
 elseif(APPLE)
     message(STATUS "Compiler: Clang in macOS")    
@@ -57,17 +60,17 @@ elseif(APPLE)
     set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
 
+    if(BUILD_OPENMP)
+        add_compile_options("$<$<C_COMPILER_ID:Clang>:-fopenmp>")
+        add_compile_options("$<$<CXX_COMPILER_ID:Clang>:-fopenmp>")
+    endif()
+
     # 警告
     string(APPEND CMAKE_CXX_FLAGS " -Wall")
     # string(APPEND CMAKE_CXX_FLAGS " -Werror")
     # string(APPEND CMAKE_CXX_FLAGS " -Weverything")
     # string(APPEND CMAKE_CXX_FLAGS " -Wno-c++98-compat")
     # string(APPEND CMAKE_CXX_FLAGS " -Wno-c++98-compat-pedanti")
-
-    # ソースコードでUTF-8を使う(GCC++)
-    add_compile_options($<$<CXX_COMPILER_ID:Clang>:/utf-8>)
-    # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
-    add_compile_options($<$<CXX_COMPILER_ID:Clang>:/Zc:__cplusplus>)  
     
 else()
     message(STATUS "Compiler: GCC in Linux")
@@ -78,6 +81,11 @@ else()
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
     set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
+
+    if(BUILD_OPENMP)
+        add_compile_options("$<$<C_COMPILER_ID:GCC>:-fopenmp>")
+        add_compile_options("$<$<CXX_COMPILER_ID:GCC>:-fopenmp>")
+    endif()
 
     # C++標準に準拠しない拡張機能を無効化
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --pedantic-errors")
@@ -109,10 +117,6 @@ else()
     # string(APPEND CMAKE_CXX_FLAGS " -Werror")
     # string(APPEND CMAKE_CXX_FLAGS " -Wno-unused")
 
-    # ソースコードでUTF-8を使う(GCC++)
-    add_compile_options($<$<CXX_COMPILER_ID:GCC>:/utf-8>)
-    # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
-    add_compile_options($<$<CXX_COMPILER_ID:GCC>:/Zc:__cplusplus>)
 endif()
 
 message(STATUS "========== [END] C++ All Target Options ==========")
