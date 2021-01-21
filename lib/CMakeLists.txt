@@ -9,10 +9,27 @@ message(STATUS "Include dir: ${DESINGN_PATTERN_INCLUDE_DIR}")
 file(GLOB_RECURSE DESINGN_PATTERN_SRC_FILES ${PROJECT_SOURCE_DIR}/lib/*.cpp)
 message(STATUS "Source files: ${DESINGN_PATTERN_SRC_FILES}")
 
-add_library(pattern)
-target_sources(pattern PRIVATE ${DESINGN_PATTERN_SRC_FILES})
-target_include_directories(pattern PUBLIC ${DESINGN_PATTERN_INCLUDE_DIR})
-target_link_libraries(pattern PUBLIC 
+if(WIN32)
+    # utf8版バージョン情報管理ファイル(雛形)の生成
+    configure_file(${CMAKE_CURRENT_SOURCE_DIR}/version.rc.in ${CMAKE_CURRENT_BINARY_DIR}/version-utf8.rc)
+
+    # utf16版バージョン情報管理ファイルの生成
+    execute_process(
+        COMMAND ${PYTHON_COMMAND} ${CMAKE_SOURCE_DIR}/build_tool/utf8_to_utf16.py 
+        ${CMAKE_CURRENT_BINARY_DIR}/version-utf8.rc ${CMAKE_CURRENT_BINARY_DIR}/version.rc
+    )
+
+    # ソースファイルに追加
+    list(APPEND DESINGN_PATTERN_SRC_FILES ${CMAKE_CURRENT_BINARY_DIR}/version.rc)
+endif()
+
+# ライブラリのターゲット名
+set(LIB_NAME pattern)
+
+add_library(${LIB_NAME})
+target_sources(${LIB_NAME} PRIVATE ${DESINGN_PATTERN_SRC_FILES})
+target_include_directories(${LIB_NAME} PUBLIC ${DESINGN_PATTERN_INCLUDE_DIR})
+target_link_libraries(${LIB_NAME} PUBLIC 
     utf8cpp
     nlohmann_json
     )
@@ -65,23 +82,23 @@ if(QT_FOUND)
     message(STATUS "Qt Rcc Files: ${QT_RCC_FILES}")
 
     # 言語サポート、リソースをターゲットに追加
-    target_sources(pattern PRIVATE
+    target_sources(${LIB_NAME} PRIVATE
         ${QT_QM_FILES}
         ${QT_RCC_FILES}
     )
 
     # ターゲットにリンク
-    target_link_libraries(pattern PRIVATE 
+    target_link_libraries(${LIB_NAME} PRIVATE 
         Qt${QT_VERSION_MAJOR}::Widgets
         Qt${QT_VERSION_MAJOR}::Core
         Qt${QT_VERSION_MAJOR}::Gui
     )
 
     # Qt dllファイルを実行ファイル.exeと同じフォルダにコピーする
-    add_custom_command(TARGET pattern POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Widgets> $<TARGET_FILE_DIR:pattern>
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Core> $<TARGET_FILE_DIR:pattern>
-        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Gui> $<TARGET_FILE_DIR:pattern>
+    add_custom_command(TARGET ${LIB_NAME} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Widgets> $<TARGET_FILE_DIR:${LIB_NAME}>
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Core> $<TARGET_FILE_DIR:${LIB_NAME}>
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Gui> $<TARGET_FILE_DIR:${LIB_NAME}>
     )
 
 else()

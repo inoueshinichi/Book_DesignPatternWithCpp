@@ -2,25 +2,64 @@ cmake_minimum_required(VERSION 3.16.3)
 
 project(design_pattern VERSION 0.1.0)
 
-
+###############################################################################
+# Version
+###############################################################################
+message(STATUS "========== [START] Version Management ==========")
 # CMake Version
-message("CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}.${CMAKE_TWEAK_VERSION}")
-# 詳細情報の表示
-# set(CMAKE_VERBOSE_MAKEFILE ON)
+message(STATUS "CMake Version: ${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}.${CMAKE_PATCH_VERSION}.${CMAKE_TWEAK_VERSION}")
 
-# Switching
-option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
-option(BUILD_CPP_TEST "Building test" OFF)
-set(BUILD_SHARED_LIBS ON)
+# プロジェクト Version
+file(STRINGS ${CMAKE_SOURCE_DIR}/VERSION.txt versions NEWLINE_CONSUME)
+string(REGEX REPLACE [[^([A-z0-9.\-_]+).*$]] [[\1]] version ${versions})
+string(REGEX REPLACE [[^([0-9]+)\.([0-9]+)\.(.*)$]] [[\1]] version_major ${version})
+string(REGEX REPLACE [[^([0-9]+)\.([0-9]+)\.(.*)$]] [[\2]] version_minor ${version})
+string(REGEX REPLACE [[^([0-9]+)\.([0-9]+)\.(.*)$]] [[\3]] version_patch ${version})
 
-if(BUILD_CPP_TEST)
-    set(BUILD_TESTING OFF)
+message(STATUS "========== [END] Version Management ==========")
+
+###############################################################################
+# 前処理
+###############################################################################
+message(STATUS "========== [START] Preprocessing ==========")
+
+# pythonコマンドをCMakeで使えるようにする
+set(PYTHON_COMMAND_NAME "python3") # どのインタープリタが選ばれるかはPCの設定次第. もっと詳細設定をコマンドライン引数から与えても良いと思う.
+find_program(PYTHON_INTERPRETER ${PYTHON_COMMAND_NAME})
+if(NOT EXISTS ${PYTHON_INTERPRETER})
+    message(FATAL_ERROR "python [${PYTHON_INTERPRETER}] not found.")
+    error() # Place Unknown command to stop cmake process here.
 endif()
+set(PYTHON_COMMAND "${PYTHON_INTERPRETER}")
+message(STATUS "python interpreter: ${PYTHON_INTERPRETER}")
+
+message(STATUS "========== [END] Preprocessing ==========")
 
 ###############################################################################
 # 全ターゲットに影響を与えるオプション
 ###############################################################################
 message(STATUS "========== [START] C++ All Target Options ==========")
+
+# Switching Option
+option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
+option(BUILD_CPP_TEST "Building test" OFF)
+option(BUILD_CPP_SHARED_LIBS "Enable/Disable shared libraries" ON)
+
+# Global Test flag
+if(BUILD_CPP_TEST)
+    set(BUILD_TESTING ON)
+else()
+    set(BUILD_TESTING OFF)
+endif()
+
+# Global Shared lib flag
+if(BUILD_CPP_SHARED_LIBS)
+    set(BUILD_CPP_SHARED_LIBS ON)
+else()
+    set(BUILD_CPP_SHARED_LIBS OFF)
+endif()
+
+
 # C++20
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -38,7 +77,6 @@ if(MSVC)
     set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "/Od /MDd /Zi /RTC1")
 
     if(BUILD_OPENMP)
-        # string(APPEND CMAKE_CXX_FLAGS " /openmp")
         add_compile_options("$<$<C_COMPILER_ID:MSVC>:/openmp>")
         add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/openmp>")
     endif()
@@ -46,36 +84,26 @@ if(MSVC)
     # ソースコードでUTF-8を使う(MSVC)
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>")
-    # string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
+
+    # オブジェクトファイル(*.obj)のサイズ制限を解放
+    add_compile_options("$<$<C_COMPILER_ID:MSVC>:/bigobj>")
+    add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/bigobj>")
 
 elseif(APPLE)
     message(STATUS "Compiler: Clang in macOS")    
 
-    # Build Options(マルチコンフィギュレーション:visual studio対応)
-    set(CMAKE_CXX_FLAGS "-O1")
-    set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
-    set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
-    set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
-
-    if(BUILD_OPENMP)
-        add_compile_options("$<$<C_COMPILER_ID:Clang>:-fopenmp>")
-        add_compile_options("$<$<CXX_COMPILER_ID:Clang>:-fopenmp>")
-    endif()
-
-    # 警告
-    string(APPEND CMAKE_CXX_FLAGS " -Wall")
-    # string(APPEND CMAKE_CXX_FLAGS " -Werror")
-    # string(APPEND CMAKE_CXX_FLAGS " -Weverything")
-    # string(APPEND CMAKE_CXX_FLAGS " -Wno-c++98-compat")
-    # string(APPEND CMAKE_CXX_FLAGS " -Wno-c++98-compat-pedanti")
+    message(FATAL_ERROR "No Implimentation of LLVM with Clang(++) in macOS.")
     
 else()
     message(STATUS "Compiler: GCC in Linux")
 
-    # Build Options(マルチコンフィギュレーション:visual studio対応)
+    # 詳細情報の表示
+    set(CMAKE_VERBOSE_MAKEFILE ON)
+
+    # Build Options(マルチコンフィギュレーション対応)
     set(CMAKE_CXX_FLAGS "-O1")
     set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
@@ -88,7 +116,7 @@ else()
     endif()
 
     # C++標準に準拠しない拡張機能を無効化
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --pedantic-errors")
+    string(APPEND CMAKE_CXX_FLAGS " --pedantic-errors")
 
     # https://stackoverflow.com/questions/5088460/flags-to-enable-thorough-and-verbose-g-warnings/9862800#9862800
     string(APPEND CMAKE_CXX_FLAGS " -pedantic")
@@ -131,16 +159,15 @@ message(STATUS "========== [START] C++ Build Core ==========")
 
 # Third Party
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third-party)
-# message(STATUS "Build third party libraries.")
-# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/third-party/utfcpp-3.1.2) # utf8::cpp
 
-
+# Library
 list(APPEND DESIGN_PATTERN_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 message(STATUS "Include dir: ${DESIGN_PATTERN_INCLUDE_DIR}")
 
 message(STATUS "ライブラリを作成します.")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
+# App
 message(STATUS "実行ファイルを作成します.")
 add_executable(design_pattern 
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp

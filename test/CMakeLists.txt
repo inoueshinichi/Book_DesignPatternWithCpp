@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16.3)
 
 
 # GoogleTestプロジェクトを生成
-include(${PROJECT_SOURCE_DIR}/cmake/gtest.cmake)
+include(${CMAKE_SOURCE_DIR}/build_tool/cmake/gtest.cmake)
 
 # Testケースの作成
 set(TestCaseTarget TestcaseOfGoogle)

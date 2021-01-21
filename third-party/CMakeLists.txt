@@ -4,17 +4,17 @@ function(download_and_extract_library NAME EXT URL)
         message(STATUS "Downloading ${NAME}")
         file(DOWNLOAD
             ${URL}
-            ${CMAKE_SOURCE_DIR}/third-party/${NAME}${EXT}
+            ${CMAKE_CURRENT_SOURCE_DIR}/${NAME}${EXT}
             SHOW_PROGRESS
             STATUS status
             LOG log)
         list(GET status 0 status_code)
         list(GET status 1 status_string)
         if(NOT status_code EQUAL 0)
-            if(UNIX or APPLE)
+            if(UNIX OR APPLE)
                 message("Failed to download ${NAME}. Try to download with wget.")
                 execute_process(
-                    COMMAND wget ${URL} -O ${CMAKE_SOURCE_DIR}/third-party/${NAME}${EXT}
+                    COMMAND wget ${URL} -O ${CMAKE_CURRENT_SOURCE_DIR}/${NAME}${EXT}
                 )
             else()
                 message(FATAL_ERROR "Failed to download ${NAME}. Please check network connection and proxy settings.
@@ -28,7 +28,7 @@ function(download_and_extract_library NAME EXT URL)
 
         execute_process(
             COMMAND ${CMAKE_COMMAND} -E 
-            chdir ${CMAKE_SOURCE_DIR}/third-party
+            chdir ${CMAKE_CURRENT_SOURCE_DIR}
             ${CMAKE_COMMAND} -E tar xf ${NAME}${EXT}
         )
     endif()
@@ -44,6 +44,6 @@ download_and_extract_library(utfcpp-3.1.2 .zip https://github.com/nemtrif/utfcpp
 add_subdirectory(utfcpp-3.1.2)
 
 # nlohmann-json(develop版はc++20対応していると思われる)
-download_and_extract_library(nlohmann_json-develop .zip https://github.com/nlohmann/json/archive/develop.zip)
+download_and_extract_library(json-develop .zip https://github.com/nlohmann/json/archive/develop.zip)
 add_subdirectory(json-develop)
 
