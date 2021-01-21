@@ -36,7 +36,7 @@ namespace Is
                         writer.mailto(mail_addr, username);
                         writer.close();
                         std::cout << filename << " is created for " 
-                            << mail_addr << " (" << username + ")";
+                            << mail_addr << " (" << username + ")" << std::endl;
                     }
                 }
             }
