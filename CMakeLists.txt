@@ -192,11 +192,34 @@ message(STATUS "Include dir: ${DESIGN_PATTERN_INCLUDE_DIR}")
 message(STATUS "ライブラリを作成します.")
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
+
+
+find_package(QT NAMES Qt5 CONFIG)
+if(NOT QT_FOUND)
+    message(FATAL_ERROR "Qt ${QT_VERSION_MAJOR}.${QT_VERSION_MINOR}.${QT_VERSION_PATCH} is not found.")
+endif()
+find_package(Qt${QT_VERSION_MAJOR} CONFIG REQUIRED COMPONENTS
+    Core
+    Gui
+    Widgets    
+)
+# Windows 拡張ライブラリ
+if(WIN32)
+    find_package(Qt${QT_VERSION_MAJOR} CONFIG REQUIRED COMPONENTS
+        WinExtras
+    )
+endif()
+
 # App
 message(STATUS "実行ファイルを作成します.")
 add_executable(design_pattern 
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
+
+target_include_directories(design_pattern PRIVATE
+    ${Qt5Widgets_INCLUDE_DIRS}
+)
+
 target_include_directories(design_pattern PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 ) 
