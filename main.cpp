@@ -86,6 +86,9 @@
 #include <nlohmann/json.hpp> // third_party
 #include "facade_pattern/pagemaker.hpp"
 
+// Mediator Pattern
+#include "mediator_pattern/loginframe.hpp"
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -517,6 +520,17 @@ void pattern_facade()
     PageMaker::makeWelcomPage("hyuki@hyuki.com", "welcom.html");
 }
 
+void pattern_mediator()
+{
+    std::printf("==================== pattern_mediator() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    LoginFrame loginframe;
+    loginframe.show();
+
+}
+
 int main(int, char**) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -536,6 +550,7 @@ int main(int, char**)
     pattern_visitor();
     pattern_chain_of_responsibility();
     pattern_facade();
+    pattern_mediator();
 
     return 0;
 }

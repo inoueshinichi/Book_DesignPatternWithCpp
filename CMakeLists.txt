@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16.3)
 
-project(design_pattern VERSION 0.1.0)
+project(design_pattern LANGUAGES CXX VERSION 0.1.0)
 
 ###############################################################################
 # Version
@@ -44,6 +44,8 @@ message(STATUS "========== [START] C++ All Target Options ==========")
 option(BUILD_OPENMP "Enable/Disable OpenMP" ON)
 option(BUILD_CPP_TEST "Building test" OFF)
 option(BUILD_CPP_SHARED_LIBS "Enable/Disable shared libraries" ON)
+option(BUILD_CPP_COMPILE_PCH "Enable/Disable compile pre-compile header" OFF)
+option(BUILD_CPP_USE_PCH "Enable/Disable use pre-compile header" OFF)
 
 # Global Test flag
 if(BUILD_CPP_TEST)
@@ -92,6 +94,18 @@ if(MSVC)
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/bigobj>")
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/bigobj>")
 
+    # sprintf_s系の邪魔なコンパイラ仕様を回避
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+
+    # プリコンパイル済みヘッダーの生成と利用
+    if(BUILD_CPP_COMPILE_PCH)
+
+    endif()
+
+    if(BUILD_CPP_USE_PCH)
+
+    endif()
+
 elseif(APPLE)
     message(STATUS "Compiler: Clang in macOS")    
 
@@ -101,7 +115,7 @@ else()
     message(STATUS "Compiler: GCC in Linux")
 
     # 詳細情報の表示
-    set(CMAKE_VERBOSE_MAKEFILE ON)
+    # set(CMAKE_VERBOSE_MAKEFILE ON)
 
     # Build Options(マルチコンフィギュレーション対応)
     set(CMAKE_CXX_FLAGS "-O1")
@@ -145,9 +159,18 @@ else()
     # string(APPEND CMAKE_CXX_FLAGS " -Werror")
     # string(APPEND CMAKE_CXX_FLAGS " -Wno-unused")
 
+    # プリコンパイル済みヘッダーの生成と利用
+    if(BUILD_CPP_COMPILE_PCH)
+
+    endif()
+
+    if(BUILD_CPP_USE_PCH)
+
+    endif()
+
 endif()
 
-message(STATUS "Adaptiving Compile Options to MultiGenerator Compiler such as XCode, Visual Studio.")
+message(STATUS "---------- Compiler Options for Multi Configuration such as XCode, Visual Studio ----------")
 message(STATUS "CMAKE_CXX_FLAGS: ${CMAKE_CXX_FLAGS}")
 message(STATUS "CMAKE_CXX_FLAGS_DEBUG: ${CMAKE_CXX_FLAGS_DEBUG}")
 message(STATUS "CMAKE_CXX_FLAGS_RELEASE: ${CMAKE_CXX_FLAGS_RELEASE}")
@@ -174,15 +197,56 @@ message(STATUS "実行ファイルを作成します.")
 add_executable(design_pattern 
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
 )
-target_include_directories(design_pattern
-     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include
+target_include_directories(design_pattern PRIVATE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 ) 
-target_link_directories(design_pattern
-    PRIVATE ${CMAKE_BINARY_DIR}/lib
+target_link_directories(design_pattern PRIVATE 
+    ${CMAKE_BINARY_DIR}/lib
 )
-target_link_libraries(design_pattern
-    PRIVATE pattern
+target_link_libraries(design_pattern PRIVATE 
+    pattern
 )
+
+target_include_directories(design_pattern PRIVATE
+    ${CMAKE_BINARY_DIR}/lib
+    ${CMAKE_SOURCE_DIR}/include/mediator_pattern
+)
+
+ # Qt Root Dir (環境変数から取得) for find_package cofig mode.
+ message(STATUS "Qt env path: $ENV{QT5_DIR}")
+ set(QT_QPA_PLATFORM_PLUGIN_DIR $ENV{QT5_DIR}/plugins/platforms)
+ list(APPEND CMAKE_PREFIX_PATH $ENV{QT5_DIR})
+ message(STATUS "CMAKE_PREFIX_PATH: ${CMAKE_PREFIX_PATH}")
+ set(Qt5_DIR $ENV{QT5_DIR}/lib/cmake CACHE PATH "Qt5 cmake script path")
+ message(STATUS "Qt cmake script path: $CACHE{Qt5_DIR}")
+
+ find_package(QT NAMES Qt5 CONFIG)
+ find_package(Qt${QT_VERSION_MAJOR} CONFIG REQUIRED COMPONENTS
+        Core
+        Gui
+        Widgets    
+    )
+
+target_link_libraries(design_pattern PRIVATE 
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Gui
+)
+
+# Qt dllファイルを実行ファイル.exeと同じフォルダにコピーする(ビルドイベント機能)
+add_custom_command(TARGET design_pattern POST_BUILD
+COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Widgets> $<TARGET_FILE_DIR:design_pattern>
+COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Core> $<TARGET_FILE_DIR:design_pattern>
+COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::Gui> $<TARGET_FILE_DIR:design_pattern>
+)
+
+# Windows用のプラットフォームプラグインをコピー
+if (MSVC)
+add_custom_command(TARGET design_pattern POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::QWindowsIntegrationPlugin> $<TARGET_FILE_DIR:design_pattern>
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different $<TARGET_FILE:Qt${QT_VERSION_MAJOR}::QWindowsDirect2DIntegrationPlugin> $<TARGET_FILE_DIR:design_pattern>
+)
+endif()
 
 message(STATUS "========== [END] C++ Build Core ==========")
 

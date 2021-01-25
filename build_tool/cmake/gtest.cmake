@@ -22,6 +22,7 @@ include(ExternalProject)
 ExternalProject_Add(
     # Taget Name
     ${GTEST_TARGET}
+    
     #################### No.0 Common Directory Path ####################
     # 一時ファイルを保存するディレクトリパス
     TMP_DIR ${GTEST_PREFIX}/tmp
@@ -38,6 +39,7 @@ ExternalProject_Add(
     # ビルド成果物のインストール先のディレクトリパス
     # (※ 実際にはmake installのインストール先に、このプロパティは使われない! make install DESTDIR=~/path/toで指定するかCMakeの-Dオプションで指定)
     INSTALL_DIR ${GTEST_INSTALL} #${GTEST_PREFIX}/install 
+
     #################### No.1 Download Step ####################
     # 原因不明で前回, git cloneを行っていないのに、すでにgit cloneされていると判断されて、git cloneが実行されない.
     # # Git Repository URL
