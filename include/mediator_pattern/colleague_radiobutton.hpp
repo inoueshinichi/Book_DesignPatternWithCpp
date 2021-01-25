@@ -25,7 +25,7 @@ namespace Is
             : QRadioButton(parent)
         {
             // Signal/Slot
-            connect(this, &QRadioButton::toggled, this, &ColleagueRadioButton::itemStateChanged);
+            connect(this, &QRadioButton::clicked, this, &ColleagueRadioButton::itemStateChanged);
         }
 
         virtual ~ColleagueRadioButton() {}
@@ -45,7 +45,8 @@ namespace Is
         void itemStateChanged()
         {
             // 状態が変化したらMediatorに通知する
-            mediator_->colleagueChanged();
+            if (mediator_)
+                mediator_->colleagueChanged();
         }
     };
 }

@@ -27,16 +27,20 @@ namespace Is
     {
         Q_OBJECT
 
-        unique_ptr<Ui::LoginFrame> ui_;
+        shared_ptr<Ui::LoginFrame> ui_;
+
+        void userpassChanged();
 
     public:
         LoginFrame(QWidget* parent = nullptr);
-
-        virtual ~LoginFrame();
+        ~LoginFrame();
 
         virtual void createColleagues() override final;
 
         virtual void colleagueChanged() override final;
+
+    public slots:
+        void actionPerformed();
     };
 }
 #endif

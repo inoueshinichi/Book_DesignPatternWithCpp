@@ -42,22 +42,25 @@ namespace Is
         virtual void setColleagueEnabled(bool enabled) override final
         {
             // MediatorからButtonの有効/無効を指示される
-            setEnabled(enabled);
+            this->setEnabled(enabled);
 
             QPalette pal(palette());
             if (enabled)
-                pal.setColor(QPalette::Background, Qt::white);
+                pal.setColor(QPalette::Window, Qt::white);
             else
-                pal.setColor(QPalette::Background, Qt::lightGray);
+                pal.setColor(QPalette::Window, Qt::lightGray);
 
             setPalette(pal);
+
+            this->update();
         }
 
     public slots:
         void textValueChanged()
         {
             // 文字列が変化したらMediatorに通知する
-            mediator_->colleagueChanged();
+            if(mediator_)
+                mediator_->colleagueChanged();
         }
     };
 }
