@@ -88,6 +88,7 @@
 
 // Mediator Pattern
 #include "mediator_pattern/loginframe.hpp"
+#include <QApplication>
 
 void pattern_iterator()
 {
@@ -520,18 +521,21 @@ void pattern_facade()
     PageMaker::makeWelcomPage("hyuki@hyuki.com", "welcom.html");
 }
 
-void pattern_mediator()
+int pattern_mediator(int argc, char** argv)
 {
     std::printf("==================== pattern_mediator() ====================\n");
     using namespace Is;
     using namespace std;
 
+    QApplication app(argc, argv);
+
     LoginFrame loginframe;
     loginframe.show();
 
+    return app.exec();
 }
 
-int main(int, char**) 
+int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
 
@@ -550,7 +554,5 @@ int main(int, char**)
     pattern_visitor();
     pattern_chain_of_responsibility();
     pattern_facade();
-    pattern_mediator();
-
-    return 0;
+    pattern_mediator(argc, argv); // GUI
 }
