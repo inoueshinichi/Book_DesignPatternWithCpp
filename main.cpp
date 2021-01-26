@@ -90,6 +90,11 @@
 #include "mediator_pattern/loginframe.hpp"
 #include <QApplication>
 
+// Observer Pattern
+#include "observer_pattern/random_number_generator.hpp"
+#include "observer_pattern/digit_observer.hpp"
+#include "observer_pattern/graph_server.hpp"
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -535,6 +540,23 @@ int pattern_mediator(int argc, char** argv)
     return app.exec();
 }
 
+void pattern_observer()
+{
+    std::printf("==================== pattern_observer() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    random_device rd; // 完全ランダムエンジン
+    int seed = (int)rd(); // rd()は符号なし32bit整数を返す
+    auto generator = make_shared<RandomNumberGenerator>(seed);
+    auto observer_1 = make_shared<DigitObserver>();
+    auto observer_2 = make_shared<GraphObserver>();
+    generator->addObserver(observer_1);
+    generator->addObserver(observer_2);
+
+    generator->execute();
+}
+
 int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -555,4 +577,5 @@ int main(int argc, char** argv)
     pattern_chain_of_responsibility();
     pattern_facade();
     pattern_mediator(argc, argv); // GUI
+    pattern_observer();
 }
