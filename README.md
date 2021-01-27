@@ -21,4 +21,8 @@ third_party libraries</br>
 12章: Decorator</br>
 13章: Visitor</br>
 14章: Chain of Responsibility</br>
+15章: facard</br>
+16章: mediator</br>
+17章: observer</br>
+18章: memento</br>
 

@@ -95,6 +95,12 @@
 #include "observer_pattern/digit_observer.hpp"
 #include "observer_pattern/graph_server.hpp"
 
+// Memento Pattern
+#include "memento_pattern/memento.hpp"
+#include "memento_pattern/gamer.hpp"
+#include <thread>
+#include <chrono>
+
 void pattern_iterator()
 {
     std::printf("==================== pattern_iterator() ====================\n");
@@ -557,6 +563,47 @@ void pattern_observer()
     generator->execute();
 }
 
+void pattern_memento()
+{
+    std::printf("==================== pattern_memento() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    Gamer gamer(100);
+    auto memento = gamer.createMement(); // 初期状態
+    for (int i = 0; i < 20; ++i)
+    {
+        printf("==== %d\n", i);
+        printf("現状： %s", gamer().c_str());
+
+        gamer.bet(); // ゲームを進める(サイコロを振る)
+
+        printf("所持金は%d円になりました.\n", gamer.getMoney());
+
+        // Mementoの取扱を決定
+        if (gamer.getMoney() > memento->getMoney())
+        {
+            printf("    だいぶ増えたので、現在の状態を保存しておこう.\n");
+            memento = gamer.createMement();
+        }
+        else if (gamer.getMoney() < memento->getMoney() / 2)
+        {
+            printf("    だいぶ減ったので、以前の状態に復帰しよう.\n");
+            gamer.restoreMemento(memento);
+        }
+
+        //  時間待ち
+        try
+        {
+            std::this_thread::sleep_for(std::chrono::milliseconds(250));
+        }
+        catch (const std::exception& e)
+        {
+            std::cerr << e.what() << std::endl;
+        }
+    }
+}
+
 int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -578,4 +625,5 @@ int main(int argc, char** argv)
     pattern_facade();
     pattern_mediator(argc, argv); // GUI
     pattern_observer();
+    pattern_memento();
 }
