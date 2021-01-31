@@ -6,7 +6,24 @@
 
 namespace Is
 {
-    struct DP_API Cpu {};
-    struct DP_API Gpu {};
+    class DP_API Cpu
+    {
+        friend SingletonManager;
+        Cpu() {}
+    public:
+        ~Cpu() {}
+        Cpu(const Cpu&) = delete;
+        Cpu& operator=(const Cpu&) = delete;
+    };
+
+    class DP_API Gpu 
+    {
+        friend SingletonManager;
+        Gpu() {}
+    public:
+        ~Gpu() {}
+        Gpu(const Gpu&) = delete;
+        Gpu& operator=(const Gpu&) = delete;
+    };
 }
 #endif
