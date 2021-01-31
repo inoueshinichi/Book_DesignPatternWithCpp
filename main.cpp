@@ -87,7 +87,7 @@
 #include "facade_pattern/pagemaker.hpp"
 
 // Mediator Pattern
-#include "mediator_pattern/loginframe.hpp"
+#include "mediator_pattern/header_for_moc/loginframe.hpp"
 #include <QApplication>
 
 // Observer Pattern
@@ -100,6 +100,16 @@
 #include "memento_pattern/gamer.hpp"
 #include <thread>
 #include <chrono>
+
+// State Pattern
+
+
+// Flyweight Pattern
+#include "flyweight_pattern/bigstring.hpp"
+
+// Proxy Pattern
+
+
 
 void pattern_iterator()
 {
@@ -604,6 +614,34 @@ void pattern_memento()
     }
 }
 
+int pattern_state(int argc, char** argv)
+{
+    std::printf("==================== pattern_state() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    return 0;
+}
+
+void pattern_flyweight()
+{
+    std::printf("==================== pattern_flyweight() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    BigString bs = BigString("1212123", ".");
+    bs.print();
+}
+
+void pattern_proxy()
+{
+    std::printf("==================== pattern_proxy() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    
+}
+
 int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -626,4 +664,7 @@ int main(int argc, char** argv)
     pattern_mediator(argc, argv); // GUI
     pattern_observer();
     pattern_memento();
+    pattern_state(argc, argv); // GUI
+    pattern_flyweight();
+    pattern_proxy();
 }
