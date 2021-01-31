@@ -81,25 +81,34 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_SOURCE_DIR})
     # UI compiler 設定
     # ui_<basename>.hのあるディレクトリは自動でインクルードディレクトリに追加される
     list(APPEND CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/mediator_pattern/ui) # 注意) この記述以降のビルドターゲットのAUTOUIC_SEARCH_PATHSの初期化にCMAKE_AUTOUIC_SEARCH_PATHSが利用される
+    list(APPEND CMAKE_AUTOUIC_SEARCH_PATHS ${CMAKE_CURRENT_SOURCE_DIR}/state_pattern/ui)
     message(STATUS "Auto Search Path List for AUTOUIC of Qt: ${CMAKE_AUTOUIC_SEARCH_PATHS}")
     # 生成されたUIヘッダーの内部に格上げするクラスのヘッダーファイルがインクルードされるので、ヘッダーディレクトリを登録
-    target_include_directories(${LIB_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/mediator_pattern)
+    target_include_directories(${LIB_NAME} PRIVATE 
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/mediator_pattern/header_for_moc
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/state_pattern/header_for_moc    
+    )
 
     # MOC compiler 設定
     # MOCは自動的にヘッダーファイルの中にあるQtMetaObjectを検出してmoc_<basename>.cppを生成する
     message(STATUS "Directory of Moc sources: ${AUTOGEN_BUILD_DIR}/include")
 
     # RCC compiler 設定
-    file(GLOB QT_QRC_FILES ${CMAKE_CURRENT_SOURCE_DIR}/mediator_pattern/rcc/*.qrc)
-    message(STATUS "Qt Rcc Files: ${QT_QRC_FILES}")
+    file(GLOB QT_QRC_FILES_MEDIATOR ${CMAKE_CURRENT_SOURCE_DIR}/mediator_pattern/qrc/*.qrc)
+    file(GLOB QT_QRC_FILES_STATE ${CMAKE_CURRENT_SOURCE_DIR}/state_pattern/qrc/*.qrc)
     target_sources(${LIB_NAME} PRIVATE 
-        ${QT_QRC_FILES} 
+        ${QT_QRC_FILES_MEDIATOR} 
+        ${QT_QRC_FILES_STATE}
     )
 
 else()
     # UIC compiler
     message(STATUS "Generate Qt Ui Header Files(.h)...")
-    file(GLOB QT_UI_FORMS ${CMAKE_SOURCE_DIR}/lib/mediator_pattern/ui/*.ui)
+    file(GLOB QT_UI_FORMS_MEDIATOR ${CMAKE_SOURCE_DIR}/lib/mediator_pattern/ui/*.ui)
+    file(GLOB QT_UI_FORMS_STATE ${CMAKE_SOURCE_DIR}/lib/state_pattern/ui/*.ui)
+    list(APPEND QT_UI_FORMS ${QT_UI_FORMS_MEDIATOR})
+    list(APPEND QT_UI_FORMS ${QT_UI_FORMS_STATE})
+
     if(${QT_VERSION_MAJOR} EQUAL 5)
         qt5_wrap_ui(QT_UI_HEADERS ${QT_UI_FORMS})
     else()
@@ -109,7 +118,11 @@ else()
 
     # MOC compiler
     message(STATUS "Generate Qt moc Source Files(.cpp)...")
-    file(GLOB QT_HEADERS_FOR_MOC ${CMAKE_SOURCE_DIR}/include/mediator_pattern/*.hpp)
+    file(GLOB QT_HEADERS_FOR_MOC_MEDIATOR ${CMAKE_SOURCE_DIR}/include/mediator_pattern/header_for_moc/*.hpp)
+    # file(GLOB QT_HEADERS_FOR_MOC_STATE ${CMAKE_SOURCE_DIR}/include/state_pattern/header_for_moc/*.hpp)
+    list(APPEND QT_HEADERS_FOR_MOC ${QT_HEADERS_FOR_MOC_MEDIATOR})
+    # list(APPEND QT_HEADERS_FOR_MOC ${QT_HEADERS_FOR_MOC_STATE})
+
     if(${QT_VERSION_MAJOR} EQUAL 5)
         qt5_wrap_cpp(QT_MOC_SOURCES ${QT_HEADERS_FOR_MOC} TARGET ${LIB_NAME})
     else()
@@ -119,7 +132,11 @@ else()
 
     # RCC compiler
     message(STATUS "Generate Qt qrc Files(.cpp)...")
-    file(GLOB QT_QRC_FILES ${CMAKE_SOURCE_DIR}/lib/mediator_pattern/qrc/*qrc)
+    file(GLOB QT_QRC_FILES_MEDIATOR ${CMAKE_SOURCE_DIR}/lib/mediator_pattern/qrc/*.qrc)
+    # file(GLOB QT_QRC_FILES_STATE ${CMAKE_SOURCE_DIR}/lib/state_pattern/qrc/*.qrc)
+    list(APPEND QT_QRC_FILES ${QT_QRC_FILES_MEDIATOR})
+    # list(APPEND QT_QRC_FILES ${QT_QRC_FILES_STATE})
+
     if(${QT_VERSION_MAJOR} EQUAL 5)
         qt5_add_resources(QT_QRC_SOURCES ${QT_QRC_FILES})
     else()
@@ -138,7 +155,12 @@ else()
 
     # 生成されたUIヘッダーの内部に格上げするクラスのヘッダーファイルがインクルードされるので、
     # ヘッダーディレクトリを登録
-    target_include_directories(${LIB_NAME} PRIVATE ${CMAKE_SOURCE_DIR}/include/mediator_pattern)
+    target_include_directories(${LIB_NAME} PUBLIC 
+        ${CMAKE_SOURCE_DIR}/include/mediator_pattern
+        ${CMAKE_SOURCE_DIR}/include/mediator_pattern/header_for_moc
+        # ${CMAKE_SOURCE_DIR}/include/state_pattern
+        # ${CMAKE_SOURCE_DIR}/include/state_pattern/header_for_moc     
+    )
 
 endif()
 
