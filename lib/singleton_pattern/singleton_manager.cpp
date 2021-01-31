@@ -40,7 +40,7 @@ namespace Is
         }
         
        iter->second.second(); // deleter instance
-       self.address2id_.erase(iter->first); // erase the pair of (address, id) 
+       self.address2id_.erase(iter->second.first); // erase the pair of (address, id) 
        self.singletons_.erase(iter); // erase (id, pair<address, deleter>)
     }
 

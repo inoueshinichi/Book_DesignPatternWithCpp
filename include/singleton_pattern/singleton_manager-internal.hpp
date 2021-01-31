@@ -48,5 +48,13 @@ namespace Is
     {
         eraseById(getId<SINGLETON>());
     }
+
+/** Template instantiation to register a Singleton to SingletonManager.
+ */
+// dllライブラリのExportに対応するために、Templateを実体化するクラスの*.cppファイルに下記マクロを記述する
+#define INSTANTIATE_SINGLETON(API, SINGLETON_CLASS)                            \
+  template API SINGLETON_CLASS *SingletonManager::getInstance<SINGLETON_CLASS>();      \
+  template API int SingletonManager::getId<SINGLETON_CLASS>();                \
+  template API void SingletonManager::erase<SINGLETON_CLASS>()
 }
 #endif
