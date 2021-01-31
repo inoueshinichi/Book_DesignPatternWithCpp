@@ -1,4 +1,4 @@
-#include "mediator_pattern/loginframe.hpp"
+#include "mediator_pattern/header_for_moc/loginframe.hpp"
 
 #include <QMessageBox>
 
