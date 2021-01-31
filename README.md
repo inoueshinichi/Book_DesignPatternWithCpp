@@ -2,10 +2,10 @@
 Java言語で学ぶデザインパターン入門のC++実装</br>
 
 third_party libraries</br>
-[1] GoogleTest</br>
-[2] utfcpp</br>
-[3] nlohmann-json</br>
-[4] Qt</br>
+[1] GoogleTest 1.10.0</br>
+[2] utfcpp 3.1.2</br>
+[3] nlohmann-json develop(for c++20)</br>
+[4] Qt 5.15.2</br>
 
 1章 : Iterator</br>
 2章 : Adapter</br>
@@ -25,4 +25,6 @@ third_party libraries</br>
 16章: mediator</br>
 17章: observer</br>
 18章: memento</br>
+19章: state</br>
+20章: flyweight</br>
 
