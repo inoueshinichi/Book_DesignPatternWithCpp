@@ -108,8 +108,11 @@
 #include "flyweight_pattern/bigstring.hpp"
 
 // Proxy Pattern
+#include "proxy_pattern/printerproxy.hpp"
 
+// Command Pattern
 
+// Interpriter Pattern
 
 void pattern_iterator()
 {
@@ -639,7 +642,11 @@ void pattern_proxy()
     using namespace Is;
     using namespace std;
 
-    
+    shared_ptr<Printable> p = make_shared<PrinterProxy>("Alice");
+    std::cout << "名前は現在" << p->getPrinterName() << " です。" << std::endl;
+    p->setPrinterName("Bob");
+    std::cout << "名前は現在" << p->getPrinterName() << " です。" << std::endl;
+    p->print("Hello world.");
 }
 
 int main(int argc, char** argv) 
