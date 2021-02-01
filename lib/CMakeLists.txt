@@ -105,9 +105,9 @@ else()
     # UIC compiler
     message(STATUS "Generate Qt Ui Header Files(.h)...")
     file(GLOB QT_UI_FORMS_MEDIATOR ${CMAKE_SOURCE_DIR}/lib/mediator_pattern/ui/*.ui)
-    file(GLOB QT_UI_FORMS_STATE ${CMAKE_SOURCE_DIR}/lib/state_pattern/ui/*.ui)
+    # file(GLOB QT_UI_FORMS_STATE ${CMAKE_SOURCE_DIR}/lib/state_pattern/ui/*.ui)
     list(APPEND QT_UI_FORMS ${QT_UI_FORMS_MEDIATOR})
-    list(APPEND QT_UI_FORMS ${QT_UI_FORMS_STATE})
+    # list(APPEND QT_UI_FORMS ${QT_UI_FORMS_STATE})
 
     if(${QT_VERSION_MAJOR} EQUAL 5)
         qt5_wrap_ui(QT_UI_HEADERS ${QT_UI_FORMS})
