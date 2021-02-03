@@ -47,13 +47,6 @@ option(BUILD_CPP_SHARED_LIBS "Enable/Disable shared libraries" ON)
 option(BUILD_CPP_COMPILE_PCH "Enable/Disable compile pre-compile header" OFF)
 option(BUILD_CPP_USE_PCH "Enable/Disable use pre-compile header" OFF)
 
-# Global Test flag
-if(BUILD_CPP_TEST)
-    set(BUILD_TESTING ON)
-else()
-    set(BUILD_TESTING OFF)
-endif()
-
 # Global Shared lib flag
 if(BUILD_CPP_SHARED_LIBS)
     set(BUILD_CPP_SHARED_LIBS ON)
@@ -89,6 +82,7 @@ if(MSVC)
 
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>")
+    string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
 
     # オブジェクトファイル(*.obj)のサイズ制限を解放
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/bigobj>")
