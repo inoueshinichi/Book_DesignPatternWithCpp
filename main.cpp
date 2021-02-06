@@ -111,6 +111,7 @@
 #include "proxy_pattern/printerproxy.hpp"
 
 // Command Pattern
+#include "command_pattern/header_for_moc/main_window.hpp"
 
 // Interpriter Pattern
 
@@ -649,6 +650,20 @@ void pattern_proxy()
     p->print("Hello world.");
 }
 
+int pattern_command(int argc, char** argv)
+{
+    std::printf("==================== pattern_command() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    QApplication app(argc, argv);
+
+    MainWindow main_win{};
+    main_win.show();
+
+    return app.exec();
+}
+
 int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -674,4 +689,5 @@ int main(int argc, char** argv)
     pattern_state(argc, argv); // GUI
     pattern_flyweight();
     pattern_proxy();
+    pattern_command(argc, argv); // GUI
 }
