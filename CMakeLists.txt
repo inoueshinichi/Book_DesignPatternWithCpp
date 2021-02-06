@@ -116,7 +116,7 @@ else()
     set(CMAKE_CXX_FLAGS_DEBUG "-O0 -g")
     set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
     set(CMAKE_CXX_FLAGS_MINSIZEREL "-Os -DNDEBUG")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g -DNDEBUG")
+    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2 -g")
 
     if(BUILD_OPENMP)
         add_compile_options("$<$<C_COMPILER_ID:GCC>:-fopenmp>")
