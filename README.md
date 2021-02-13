@@ -21,10 +21,14 @@ third_party libraries</br>
 12章: Decorator</br>
 13章: Visitor</br>
 14章: Chain of Responsibility</br>
-15章: facard</br>
-16章: mediator</br>
-17章: observer</br>
-18章: memento</br>
-19章: state</br>
-20章: flyweight</br>
+15章: Facard</br>
+16章: Mediator</br>
+17章: Observer</br>
+18章: Memento</br>
+19章: State</br>
+20章: Flyweight</br>
+21章: Proxy</br>
+22章: Command</br>
+23章: Interpreter</br>
+
 
