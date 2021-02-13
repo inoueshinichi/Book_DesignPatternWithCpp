@@ -114,6 +114,9 @@
 #include "command_pattern/header_for_moc/main_window.hpp"
 
 // Interpriter Pattern
+#include "interpreter_pattern/program_node.hpp"
+#include "interpreter_pattern/node.hpp"
+#include <fstream>
 
 void pattern_iterator()
 {
@@ -664,6 +667,28 @@ int pattern_command(int argc, char** argv)
     return app.exec();
 }
 
+void pattern_interpreter()
+{
+    std::printf("==================== pattern_interpreter() ====================\n");
+    using namespace Is;
+    using namespace std;
+
+    ifstream ifs("program.txt");
+
+    if (ifs) {
+        string text;
+        while (std::getline(ifs, text)) {
+            std::printf("text = \"%s\"", text.c_str());
+            shared_ptr<Node> node = make_shared<ProgramNode>();
+            InterpreterContext ctx(text);
+            node->parse(ctx);
+            std::cout << "node = " << node->to_string() << std::endl;
+        }
+    } else {
+        std::cerr << "ファイルを開くことに失敗しました." << std::endl;
+    }
+}
+
 int main(int argc, char** argv) 
 {  
     std::cout << "__cplusplus: " << __cplusplus << std::endl;
@@ -690,4 +715,5 @@ int main(int argc, char** argv)
     pattern_flyweight();
     pattern_proxy();
     pattern_command(argc, argv); // GUI
+    pattern_interpreter();
 }

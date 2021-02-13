@@ -33,6 +33,16 @@ endif()
 set(PYTHON_COMMAND "${PYTHON_INTERPRETER}")
 message(STATUS "python interpreter: ${PYTHON_INTERPRETER}")
 
+# プログラムで使用するファイルのコピー
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/big1.txt" "${CMAKE_CURRENT_BINARY_DIR}/big1.txt")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/big2.txt" "${CMAKE_CURRENT_BINARY_DIR}/big2.txt")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/big3.txt" "${CMAKE_CURRENT_BINARY_DIR}/big3.txt")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/Greeting.html" "${CMAKE_CURRENT_BINARY_DIR}/Greeting.html")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/LinkPage.html" "${CMAKE_CURRENT_BINARY_DIR}/LinkPage.html")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/TablePage.html" "${CMAKE_CURRENT_BINARY_DIR}/TablePage.html")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/welcom.html" "${CMAKE_CURRENT_BINARY_DIR}/welcom.html")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/program.txt" "${CMAKE_CURRENT_BINARY_DIR}/program.txt")
+
 message(STATUS "========== [END] Preprocessing ==========")
 
 ###############################################################################
