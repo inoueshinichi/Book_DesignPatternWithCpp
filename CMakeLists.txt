@@ -59,9 +59,9 @@ option(BUILD_CPP_USE_PCH "Enable/Disable use pre-compile header" OFF)
 
 # Global Shared lib flag
 if(BUILD_CPP_SHARED_LIBS)
-    set(BUILD_CPP_SHARED_LIBS ON)
+    set(BUILD_SHARED_LIBS ON)
 else()
-    set(BUILD_CPP_SHARED_LIBS OFF)
+    set(BUILD_SHARED_LIBS OFF)
 endif()
 
 
@@ -92,14 +92,13 @@ if(MSVC)
 
     # C++11以降を利用した場合にマクロ変数__cplusplusの値を利用中のC++バージョンに合わせる(つけないとC++98相当の値になる)
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/Zc:__cplusplus>")
-    string(APPEND CMAKE_CXX_FLAGS " /Zc:__cplusplus")
 
     # オブジェクトファイル(*.obj)のサイズ制限を解放
     add_compile_options("$<$<C_COMPILER_ID:MSVC>:/bigobj>")
     add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/bigobj>")
 
     # sprintf_s系の邪魔なコンパイラ仕様を回避
-    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
+    add_compile_definitions("$<$<CXX_COMPILER_ID:MSVC>:_CRT_SECURE_NO_WARNINGS>")
 
     # プリコンパイル済みヘッダーの生成と利用
     if(BUILD_CPP_COMPILE_PCH)

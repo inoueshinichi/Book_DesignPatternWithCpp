@@ -14,36 +14,23 @@ namespace Is
         string name_;
 
     public:
-        Book() {}
-        ~Book() {}
-        explicit Book(const string& name) : name_(name) {}
+        Book();
+        ~Book();
+        explicit Book(const string& name);
 
         // コピーコンストラクタ
-        Book(const Book& rho) : name_(rho.name_) {}
+        Book(const Book& rhs);
 
         // コピー代入演算子
-        Book& operator=(const Book& rho)
-        {
-            if (this == &rho)
-                return *this;
-
-            this->name_ = rho.name_;
-            return *this;
-        }
+        Book& operator=(const Book& rhs);
         
         // ムーブコンストラクタ
         Book(Book&& other) : name_(std::move(other.name_)) {}
 
         // ムーブ代入演算子
-        Book& operator=(Book&& rho)
-        {
-            if (this == &rho)
-                return *this;
+        Book& operator=(Book&& rhs);
 
-            this->name_ = std::move(rho.name_);
-            return *this;
-        }
-        string& getName() { return name_; }
+        inline string& getName() { return name_; }
     };
 }
 #endif
