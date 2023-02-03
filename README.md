@@ -1,34 +1,35 @@
-# DesignPattern
-Java言語で学ぶデザインパターン入門のC++実装</br>
+# DesignPattern with C++  
+Java言語で学ぶデザインパターン入門のC++実装
+https://www.sbcr.jp/product/4815609801/  
+  
+third_party libraries  
+[1] GoogleTest 1.10.0  
+[2] utfcpp 3.1.2  
+[3] nlohmann-json develop(for c++20)  
+[4] Qt 5.15.2  
 
-third_party libraries</br>
-[1] GoogleTest 1.10.0</br>
-[2] utfcpp 3.1.2</br>
-[3] nlohmann-json develop(for c++20)</br>
-[4] Qt 5.15.2</br>
-
-1章 : Iterator</br>
-2章 : Adapter</br>
-3章 : Template Method</br>
-4章 : Factory Method</br>
-5章 : Singleton (Manager)</br>
-6章 : Prototype</br>
-7章 : Builder</br>
-8章 : Abstract Factory</br>
-9章 : Bridge</br>
-10章: Strategy</br>
-11章: Composite</br>
-12章: Decorator</br>
-13章: Visitor</br>
-14章: Chain of Responsibility</br>
-15章: Facard</br>
-16章: Mediator</br>
-17章: Observer</br>
-18章: Memento</br>
-19章: State</br>
-20章: Flyweight</br>
-21章: Proxy</br>
-22章: Command</br>
-23章: Interpreter</br>
+1章 : Iterator  
+2章 : Adapter  
+3章 : Template Method  
+4章 : Factory Method  
+5章 : Singleton (Manager)  
+6章 : Prototype  
+7章 : Builder  
+8章 : Abstract Factory  
+9章 : Bridge  
+10章: Strategy  
+11章: Composite  
+12章: Decorator  
+13章: Visitor  
+14章: Chain of Responsibility  
+15章: Facard  
+16章: Mediator  
+17章: Observer  
+18章: Memento  
+19章: State  
+20章: Flyweight  
+21章: Proxy  
+22章: Command  
+23章: Interpreter  
 
 
