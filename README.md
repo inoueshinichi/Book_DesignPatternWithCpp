@@ -1,5 +1,5 @@
 # DesignPattern with C++  
-Java言語で学ぶデザインパターン入門のC++実装
+Java言語で学ぶデザインパターン入門のC++実装  
 https://www.sbcr.jp/product/4815609801/  
   
 third_party libraries  
